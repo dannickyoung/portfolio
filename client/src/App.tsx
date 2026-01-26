@@ -28,7 +28,7 @@ function CVPage() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio">
       <Routes>
         <Route path="/" element={<AboutPage />} />
         <Route path="/work" element={<WorkPage />} />
