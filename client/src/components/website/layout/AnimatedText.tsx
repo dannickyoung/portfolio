@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 
 interface AnimatedTextProps {
   text: string;
