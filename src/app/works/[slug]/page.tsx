@@ -172,8 +172,8 @@ export default async function WorkPage({
                 ))}
               </ul>
 
-              <Link
-                href="/#contact"
+              <a
+                href="mailto:dannick.young@thevicistudio.com"
                 className="group relative flex items-center justify-center overflow-hidden rounded-full cursor-pointer"
                 style={{
                   fontSize: 14,
@@ -199,7 +199,7 @@ export default async function WorkPage({
                 >
                   Let&apos;s talk <span aria-hidden>→</span>
                 </span>
-              </Link>
+              </a>
             </aside>
 
             {/* vertical line */}

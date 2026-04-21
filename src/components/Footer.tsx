@@ -178,7 +178,7 @@ function CaseFooter() {
               <ul className="footer-socials-row">
                 {[
                   { label: "LinkedIn", href: "https://linkedin.com/in/dannickyoung" },
-                  { label: "Email", href: "mailto:dannickyoung@outlook.com" },
+                  { label: "Email", href: "mailto:dannick.young@thevicistudio.com" },
                   { label: "Resume", href: "/resume" },
                 ].map((s) => (
                   <li key={s.label}>
@@ -199,7 +199,7 @@ function CaseFooter() {
 function CtaButton() {
   return (
     <a
-      href="#contact"
+      href="mailto:dannick.young@thevicistudio.com"
       className="group relative inline-flex items-center justify-center overflow-hidden rounded-full cursor-pointer"
       style={{
         fontSize: 20,

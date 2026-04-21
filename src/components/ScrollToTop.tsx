@@ -13,7 +13,19 @@ export default function ScrollToTop() {
   }, []);
 
   useLayoutEffect(() => {
+    const hash = window.location.hash;
     const snap = () => {
+      if (hash) {
+        const el = document.querySelector(hash);
+        if (el) {
+          if (window.__lenis) {
+            window.__lenis.scrollTo(el as HTMLElement, { immediate: true, force: true });
+          } else {
+            (el as HTMLElement).scrollIntoView();
+          }
+          return;
+        }
+      }
       if (window.__lenis) {
         window.__lenis.scrollTo(0, { immediate: true, force: true });
       } else {

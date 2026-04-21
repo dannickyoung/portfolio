@@ -41,7 +41,10 @@ export default function Home() {
       >
         <Footer />
       </div>
-      <div style={{ height: "100vh", position: "relative", zIndex: 0 }} />
+      <div
+        id="contact"
+        style={{ height: "100vh", position: "relative", zIndex: 0 }}
+      />
 
       <PageBlur />
     </>

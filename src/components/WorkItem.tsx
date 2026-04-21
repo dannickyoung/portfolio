@@ -9,9 +9,10 @@ import type { Work } from "@/lib/works";
 type Props = {
   work: Work;
   priority?: boolean;
+  hrefBase?: string;
 };
 
-export default function WorkItem({ work, priority }: Props) {
+export default function WorkItem({ work, priority, hrefBase = "/works" }: Props) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -51,7 +52,7 @@ export default function WorkItem({ work, priority }: Props) {
             )}
           </div>
           <Link
-            href={`/works/${work.slug}`}
+            href={`${hrefBase}/${work.slug}`}
             className="work-name-link"
             style={{
               display: "flex",
@@ -98,7 +99,7 @@ export default function WorkItem({ work, priority }: Props) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <Link href={`/works/${work.slug}`} aria-label={`Open ${work.title}`}>
+        <Link href={`${hrefBase}/${work.slug}`} aria-label={`Open ${work.title}`}>
           <div
             className={`tile ${work.tone === "dark" ? "" : work.tone} work-tile`}
             style={{

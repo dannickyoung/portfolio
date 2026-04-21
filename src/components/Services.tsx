@@ -76,7 +76,7 @@ export default function Services() {
                         lineHeight: 1.1,
                         opacity: dimmed ? 0.3 : 1,
                         transition: "opacity 0.3s ease",
-                        cursor: interactive ? "pointer" : "default",
+                        cursor: "none",
                       }}
                     >
                       {s.label}

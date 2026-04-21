@@ -4,6 +4,7 @@ import HeroTime from "./HeroTime";
 
 const navLinks = [
   { label: "Works", href: "#works" },
+  { label: "Branding", href: "/branding" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Hire me", href: "#contact" },
@@ -66,12 +67,12 @@ export default function Hero() {
           <HeroTime />
         </div>
         <div className="hero-col-right hero-cell-bot-right">
-          <Link href="#contact" className="hero-cta">
+          <a href="mailto:dannick.young@thevicistudio.com" className="hero-cta">
             <span className="hero-cta-arrow" aria-hidden>
               →
             </span>
             <span>Let&apos;s talk about your idea</span>
-          </Link>
+          </a>
         </div>
       </div>
     </section>
