@@ -44,13 +44,13 @@ export const brandingWorks: BrandingWork[] = [
       "Designing the smallest touchpoint first forces the whole system to stay simple.",
     ],
     blocks: [
+      { kind: "single", tone: "light", image: "/branding/lumen/7.png" },
+      { kind: "single", tone: "dark", image: "/branding/lumen/8.png" },
       {
         kind: "double",
         tones: ["light", "dark"],
         images: ["/branding/lumen/3.1.png", "/branding/lumen/31.png"],
       },
-      { kind: "single", tone: "light", image: "/branding/lumen/7.png" },
-      { kind: "single", tone: "dark", image: "/branding/lumen/8.png" },
       { kind: "single", tone: "lime", image: "/branding/lumen/9.png" },
       { kind: "single", tone: "light", image: "/branding/lumen/10.png" },
       { kind: "single", tone: "dark", image: "/branding/lumen/11.png" },
@@ -101,13 +101,13 @@ export const brandingWorks: BrandingWork[] = [
       "Color is the fastest way to differentiate in a saturated category.",
     ],
     blocks: [
+      { kind: "single", tone: "lime", image: "/branding/gobrainly/25.png" },
+      { kind: "single", tone: "dark", image: "/branding/gobrainly/26.png" },
       {
         kind: "double",
         tones: ["lime", "light"],
         images: ["/branding/gobrainly/3.1.png", "/branding/gobrainly/30.png"],
       },
-      { kind: "single", tone: "lime", image: "/branding/gobrainly/25.png" },
-      { kind: "single", tone: "dark", image: "/branding/gobrainly/26.png" },
       { kind: "single", tone: "light", image: "/branding/gobrainly/27.png" },
       { kind: "single", tone: "dark", image: "/branding/gobrainly/28.png" },
       { kind: "single", tone: "lime", image: "/branding/gobrainly/29.png" },
@@ -158,13 +158,13 @@ export const brandingWorks: BrandingWork[] = [
       "Shareability is a brand strategy, if it can't live as a screenshot, it doesn't live on Gen-Z phones.",
     ],
     blocks: [
+      { kind: "single", tone: "light", image: "/branding/soulgarden/13.png" },
+      { kind: "single", tone: "lime", image: "/branding/soulgarden/14.png" },
       {
         kind: "double",
         tones: ["light", "dark"],
         images: ["/branding/soulgarden/3.1.png", "/branding/soulgarden/18.png"],
       },
-      { kind: "single", tone: "light", image: "/branding/soulgarden/13.png" },
-      { kind: "single", tone: "lime", image: "/branding/soulgarden/14.png" },
       { kind: "single", tone: "dark", image: "/branding/soulgarden/15.png" },
       { kind: "single", tone: "light", image: "/branding/soulgarden/16.png" },
       { kind: "single", tone: "lime", image: "/branding/soulgarden/17.png" },
