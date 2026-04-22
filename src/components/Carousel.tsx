@@ -32,7 +32,14 @@ export default function Carousel() {
         overflow: "hidden",
       }}
     >
-      <div className="container-830" style={{ marginBottom: 32 }}>
+      <div
+        className="container-830 section-line on-dark"
+        style={{
+          marginBottom: 32,
+          ["--line-top" as string]: "64px",
+          ["--line-bottom" as string]: "336px",
+        } as React.CSSProperties}
+      >
         <Reveal>
           <div className="row-split on-dark">
             <div className="row-left">
@@ -40,7 +47,6 @@ export default function Carousel() {
                 Need more?
               </p>
             </div>
-            <div className="row-line" />
             <div className="row-right">
               <h2 className="h-section" style={{ margin: 0 }}>
                 More recent explorations.

@@ -29,7 +29,7 @@ export default function WorkItem({ work, priority, hrefBase = "/works" }: Props)
             <p
               aria-hidden
               style={{
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: 600,
                 lineHeight: 1.3,
                 margin: 0,

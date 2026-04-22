@@ -607,8 +607,8 @@ button.resume-download {
 .section-line::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: calc(var(--line-top, 0px) * -1);
+  bottom: calc(var(--line-bottom, 0px) * -1);
   left: 320px;
   width: 1px;
   background: var(--hairline);
@@ -623,6 +623,34 @@ button.resume-download {
   }
 }
 
+/* Full-section vertical line for case-grid layouts (484 | 1px | 1fr inside max-width 1352).
+   Apply to any section that wraps a case-grid; the line spans that whole section. */
+.case-section-line {
+  position: relative;
+}
+.case-section-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: max(500px, calc((100% - 1352px) / 2 + 484px));
+  width: 1px;
+  background: var(--hairline);
+  pointer-events: none;
+  z-index: 0;
+}
+.case-section-line.on-dark::before {
+  background: var(--hairline-dark);
+}
+footer.case-section-line::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 720px) {
+  .case-section-line::before {
+    display: none;
+  }
+}
+
 /* ---------- Row pattern: 320 | 1px | 492 ---------- */
 .row-split {
   display: grid;
@@ -633,7 +661,11 @@ button.resume-download {
 }
 .row-split > .row-left {
   grid-column: 1;
-  padding-right: 17px;
+  justify-self: end;
+  text-align: left;
+  box-sizing: border-box;
+  width: 220px;
+  margin-right: 48px;
 }
 .row-split > .row-line {
   grid-column: 2;
@@ -648,7 +680,7 @@ button.resume-download {
 }
 .row-split > .row-right {
   grid-column: 3;
-  padding-left: 18px;
+  padding-left: 48px;
 }
 @media (max-width: 720px) {
   .row-split {
@@ -722,14 +754,13 @@ button.resume-download {
   overflow: hidden;
 }
 .hero-divider {
-  grid-column: 2;
-  grid-row: 1 / -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(max(0px, (100% - 862px) / 2) + 336px);
   width: 1px;
   background: var(--hairline);
   pointer-events: none;
-  justify-self: center;
-  height: 100%;
-  position: relative;
   z-index: 1;
 }
 .hero-dot-mask {
@@ -899,13 +930,13 @@ button.resume-download {
   letter-spacing: -0.04em;
 }
 .nav-col-left {
-  padding-right: 17px;
+  padding-right: 48px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 .nav-col-right {
-  padding-left: 18px;
+  padding-left: 48px;
   display: flex;
   align-items: center;
   grid-column: 3;
@@ -1053,7 +1084,7 @@ button.resume-download {
   transform: translateX(0);
 }
 .work-blur-text {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
   color: #fff;

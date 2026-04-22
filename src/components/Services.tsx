@@ -32,7 +32,13 @@ export default function Services() {
         alignItems: "center",
       }}
     >
-      <div className="container-830 section-line on-dark">
+      <div
+        className="container-830 section-line on-dark"
+        style={{
+          ["--line-top" as string]: "149px",
+          ["--line-bottom" as string]: "201px",
+        } as React.CSSProperties}
+      >
         <Reveal>
           <div className="row-split on-dark" style={{ marginBottom: 64 }}>
             <div className="row-left">

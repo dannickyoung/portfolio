@@ -29,7 +29,12 @@ function DefaultFooter() {
       >
         <div
           className="container-830 section-line"
-          style={{ display: "flex", flexDirection: "column", flex: 1 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            ["--line-top" as string]: "200px",
+          } as React.CSSProperties}
         >
           <div className="row-split">
             <div className="row-left">
@@ -74,6 +79,7 @@ function CaseFooter() {
   return (
     <footer
       id="contact"
+      className="case-section-line"
       style={{
         background: "var(--primary)",
         color: "#000",
@@ -125,15 +131,7 @@ function CaseFooter() {
             </div>
           </div>
 
-          <div
-            style={{
-              gridColumn: 2,
-              width: 1,
-              background: "rgba(0, 0, 0, 0.2)",
-              alignSelf: "stretch",
-              justifySelf: "center",
-            }}
-          />
+          <div style={{ gridColumn: 2 }} aria-hidden />
 
           <div
             style={{

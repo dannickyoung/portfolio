@@ -35,7 +35,7 @@ export default async function BrandingWorkPage({
         </header>
 
         <main
-          className="wrapper"
+          className="wrapper case-section-line"
           style={{
             background: "var(--bg-white)",
             color: "var(--text)",
@@ -201,15 +201,7 @@ export default async function BrandingWorkPage({
               </a>
             </aside>
 
-            <div
-              className="case-line"
-              style={{
-                width: 1,
-                background: "var(--hairline)",
-                alignSelf: "stretch",
-                justifySelf: "center",
-              }}
-            />
+            <div style={{ gridColumn: 2 }} aria-hidden />
 
             <div
               className="case-right"
@@ -283,7 +275,7 @@ export default async function BrandingWorkPage({
 
         <Link
           href={`/branding/${nextWork.slug}`}
-          className="next-project group"
+          className="next-project group case-section-line on-dark"
           aria-label={`Explore next project: ${nextWork.title}`}
           style={{
             display: "flex",
@@ -291,7 +283,7 @@ export default async function BrandingWorkPage({
             background: "var(--bg)",
             color: "var(--text-inv)",
             minHeight: "66.666vh",
-            padding: "80px 48px",
+            padding: "80px 16px",
             textDecoration: "none",
           }}
         >
@@ -312,14 +304,7 @@ export default async function BrandingWorkPage({
                 Explore<br />next project
               </p>
             </div>
-            <div
-              style={{
-                width: 1,
-                background: "var(--hairline-dark)",
-                alignSelf: "stretch",
-                justifySelf: "center",
-              }}
-            />
+            <div style={{ gridColumn: 2 }} aria-hidden />
             <div style={{ paddingLeft: 24 }}>
               <h2
                 className="next-project-title"

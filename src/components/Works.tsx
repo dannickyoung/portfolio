@@ -14,17 +14,23 @@ export default function Works() {
         paddingBottom: 96,
       }}
     >
-      <div className="container-830 section-line on-dark">
+      <div
+        className="container-830 section-line on-dark"
+        style={{
+          ["--line-top" as string]: "96px",
+          ["--line-bottom" as string]: "96px",
+        } as React.CSSProperties}
+      >
         <Reveal>
           <div className="row-split on-dark" style={{ marginBottom: 64 }}>
             <div className="row-left">
               <p className="t-label" style={{ opacity: 0.6 }}>
-                Selected
+                Selected Works
               </p>
             </div>
             <div className="row-right">
               <h2 className="h-section" style={{ margin: 0 }}>
-                Works
+                Product Design
               </h2>
             </div>
           </div>

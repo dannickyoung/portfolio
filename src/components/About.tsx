@@ -13,7 +13,13 @@ export default function About() {
         paddingBottom: 96,
       }}
     >
-      <div className="container-830 section-line">
+      <div
+        className="container-830 section-line"
+        style={{
+          ["--line-top" as string]: "96px",
+          ["--line-bottom" as string]: "96px",
+        } as React.CSSProperties}
+      >
         <Reveal>
           <div className="row-split" style={{ marginBottom: 72 }}>
             <div className="row-left">
