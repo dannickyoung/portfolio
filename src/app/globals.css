@@ -685,12 +685,18 @@ footer.case-section-line::before {
 @media (max-width: 720px) {
   .row-split {
     grid-template-columns: 1fr;
+    row-gap: 16px;
   }
   .row-split > .row-line {
     display: none;
   }
   .row-split > .row-left,
   .row-split > .row-right {
+    grid-column: 1;
+    justify-self: start;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding: 0;
   }
 }
@@ -877,16 +883,44 @@ footer.case-section-line::before {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto;
     column-gap: 0;
-    row-gap: 24px;
+    row-gap: 20px;
     padding: 24px 16px 40px;
+    min-height: auto;
   }
   .hero-divider {
     display: none;
   }
   .hero-col-left,
   .hero-col-right {
+    grid-column: 1;
     justify-self: start;
     text-align: left;
+    width: 100%;
+  }
+  .hero-cell-top-left {
+    padding-top: 0;
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: start;
+    width: auto;
+  }
+  .hero-cell-top-right {
+    padding-top: 0;
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    width: auto;
+  }
+  .hero-based {
+    font-size: 20px;
+  }
+  .hero-headline {
+    font-size: clamp(36px, 10vw, 48px);
+    line-height: 1.08;
+  }
+  .hero-cell-bot-left,
+  .hero-cell-bot-right {
+    align-self: start;
   }
 }
 
@@ -1141,6 +1175,112 @@ footer.case-section-line::before {
   position: relative;
   z-index: 2;
   background: var(--bg);
+}
+
+/* ---------- Mobile overrides ≤720px ---------- */
+@media (max-width: 720px) {
+  /* Case-grid collapses on mobile — override inline grid styles */
+  .case-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+  .case-grid > aside {
+    position: static !important;
+    padding-right: 0 !important;
+    margin-bottom: 40px;
+    top: auto !important;
+  }
+  .case-grid .case-right {
+    padding-left: 0 !important;
+  }
+  .case-grid > [aria-hidden] {
+    display: none !important;
+  }
+
+  /* Typography scaling for mobile */
+  .h-mega {
+    font-size: clamp(40px, 12vw, 56px);
+    white-space: normal;
+  }
+  .h-section {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+  .next-project-title {
+    font-size: clamp(48px, 14vw, 72px) !important;
+    line-height: 0.95 !important;
+  }
+
+  /* Footer mobile */
+  footer .h-mega,
+  footer[class*="case"] .h-mega {
+    white-space: normal !important;
+    font-size: clamp(40px, 12vw, 56px) !important;
+    margin-bottom: 32px !important;
+  }
+  footer .wrapper {
+    padding-top: 120px !important;
+  }
+  .footer-find-me {
+    flex-wrap: wrap;
+    gap: 16px !important;
+    padding-top: 32px !important;
+  }
+  .footer-socials-row {
+    gap: 16px;
+  }
+
+  /* Next project section padding normalization */
+  .next-project {
+    min-height: 50vh !important;
+    padding: 64px 16px !important;
+  }
+  .next-project .case-grid {
+    align-items: start !important;
+    row-gap: 16px;
+  }
+  .next-project .case-grid > div:first-child {
+    padding-right: 0 !important;
+  }
+  .next-project .case-grid > div:last-child {
+    padding-left: 0 !important;
+  }
+
+  /* Wrapper reset for case pages */
+  main.case-section-line {
+    padding-top: 32px !important;
+    padding-bottom: 64px !important;
+  }
+
+  /* WorkItem tile: no rotation on touch, full width */
+  .work-tile {
+    transform: none !important;
+  }
+
+  /* Hide custom cursor on touch */
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  /* Services list typography */
+  .services-list {
+    font-size: 20px !important;
+  }
+
+  /* Carousel / About section-line variants on dark */
+  .container-830 {
+    max-width: 100%;
+  }
+}
+
+/* Tablet adjustments (721-960) */
+@media (min-width: 721px) and (max-width: 960px) {
+  .h-mega {
+    font-size: clamp(48px, 8vw, 72px);
+  }
+  .next-project-title {
+    font-size: clamp(64px, 10vw, 88px) !important;
+  }
 }
 
 /* ---------- Print (Resume PDF export) ---------- */
