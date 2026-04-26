@@ -1053,19 +1053,22 @@ footer.case-section-line::before {
   transition-delay: 0s;
 }
 .nav-menu-zone:hover .menu-button,
-.nav-menu-zone:focus-within .menu-button {
+.nav-menu-zone:focus-within .menu-button,
+.nav-menu-zone.is-open .menu-button {
   opacity: 0;
   transform: translateX(-6px);
   pointer-events: none;
 }
 .nav-menu-zone:hover .nav-menu,
-.nav-menu-zone:focus-within .nav-menu {
+.nav-menu-zone:focus-within .nav-menu,
+.nav-menu-zone.is-open .nav-menu {
   opacity: 1;
   transform: translate(0, -50%);
   pointer-events: auto;
 }
 .nav-menu-zone:hover .nav-link,
-.nav-menu-zone:focus-within .nav-link {
+.nav-menu-zone:focus-within .nav-link,
+.nav-menu-zone.is-open .nav-link {
   opacity: 1;
   filter: blur(0);
   transform: translateY(0);
@@ -1270,6 +1273,52 @@ footer.case-section-line::before {
   /* Carousel / About section-line variants on dark */
   .container-830 {
     max-width: 100%;
+  }
+
+  /* WorkItem vertical rhythm — tighten padding between stacked cards */
+  article.row-split.on-dark {
+    padding-block: 20px !important;
+  }
+
+  /* CaseFooter grid collapses to single column on mobile */
+  .case-footer-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    row-gap: 24px;
+  }
+  .case-footer-grid > div {
+    grid-column: 1 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .case-footer-grid > [aria-hidden] {
+    display: none !important;
+  }
+
+  /* Mobile nav menu — stack vertically below the Menu button */
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+    top: calc(100% + 16px);
+    right: 0;
+    left: auto;
+    transform: translate(0, -8px);
+  }
+  .nav-menu-zone:hover .nav-menu,
+  .nav-menu-zone:focus-within .nav-menu,
+  .nav-menu-zone.is-open .nav-menu {
+    transform: translate(0, 0);
+  }
+  .nav-link {
+    padding: 4px 0;
+    font-size: 16px;
+  }
+  /* Keep Menu button visible on mobile so users can tap to close */
+  .nav-menu-zone.is-open .menu-button {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
   }
 }
 

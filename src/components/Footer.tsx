@@ -100,6 +100,7 @@ function CaseFooter() {
         }}
       >
         <div
+          className="case-footer-grid"
           style={{
             maxWidth: 1352,
             width: "100%",

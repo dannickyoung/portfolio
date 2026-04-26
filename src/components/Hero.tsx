@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeroDotBackground from "./HeroDotBackground";
 import HeroTime from "./HeroTime";
+import NavMenu from "./NavMenu";
 
 const navLinks = [
   { label: "Product", href: "#works" },
@@ -23,27 +24,7 @@ export default function Hero() {
           </Link>
         </div>
         <div className="hero-col-right hero-cell-top-right">
-          <div className="nav-menu-zone">
-            <button
-              type="button"
-              className="menu-button"
-              aria-expanded="false"
-            >
-              Menu
-            </button>
-            <ul className="nav-menu" role="menu">
-              {navLinks.map((l, i) => (
-                <li
-                  key={l.href}
-                  style={{ ["--i" as string]: i } as React.CSSProperties}
-                >
-                  <Link href={l.href} className="nav-link">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <NavMenu links={navLinks} />
         </div>
       </div>
 

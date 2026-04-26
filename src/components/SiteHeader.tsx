@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NavMenu from "./NavMenu";
 
 const navLinks = [
   { label: "Product", href: "/#works" },
@@ -16,27 +16,7 @@ export default function SiteHeader() {
       <div className="hero-row hero-row-top">
         <div className="hero-col-left hero-cell-top-left" />
         <div className="hero-col-right hero-cell-top-right">
-          <div className="nav-menu-zone">
-            <button
-              type="button"
-              className="menu-button"
-              aria-expanded="false"
-            >
-              Menu
-            </button>
-            <ul className="nav-menu" role="menu">
-              {navLinks.map((l, i) => (
-                <li
-                  key={l.href}
-                  style={{ ["--i" as string]: i } as React.CSSProperties}
-                >
-                  <Link href={l.href} className="nav-link">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <NavMenu links={navLinks} />
         </div>
       </div>
     </section>
