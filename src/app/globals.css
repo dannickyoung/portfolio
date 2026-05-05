@@ -62,8 +62,12 @@ html {
 }
 a,
 button,
-[role="button"] {
-  cursor: none;
+[role="button"],
+input,
+textarea,
+select,
+label {
+  cursor: none !important;
 }
 
 /* Hide native scrollbar visually; Lenis handles scroll feel */
@@ -604,7 +608,7 @@ button.resume-download {
   background: #fff;
   mix-blend-mode: difference;
   pointer-events: none;
-  z-index: 2137;
+  z-index: 100001;
   transform: translate3d(-100px, -100px, 0);
   transition: width 0.25s ease, height 0.25s ease;
   will-change: transform;
@@ -1122,6 +1126,32 @@ footer.case-section-line::before {
   pointer-events: auto;
 }
 
+/* Mobile-only close button inside the fullscreen panel */
+.nav-menu-close-li {
+  display: none;
+}
+.nav-menu-close {
+  background: none;
+  border: 0;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+}
+.nav-menu-close svg {
+  display: block;
+}
+
+/* ---------- Mobile nav overlay (portaled, mobile-only) ---------- */
+.mobile-nav-overlay {
+  display: none;
+}
+
 /* ---------- Case (work detail) grid ---------- */
 @media (max-width: 960px) {
   .case-grid {
@@ -1138,6 +1168,13 @@ footer.case-section-line::before {
   .case-grid .case-right {
     padding-left: 0 !important;
   }
+}
+
+/* ---------- Work item meta column ---------- */
+.work-meta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 /* ---------- Work item hover arrow + blur text ---------- */
@@ -1318,6 +1355,15 @@ footer.case-section-line::before {
     padding-block: 20px !important;
   }
 
+  /* WorkItem: hide hover-only description placeholder which reserves
+     ~80px of empty space above each title on mobile (BlurText is hover-only). */
+  .work-desc-slot {
+    display: none !important;
+  }
+  .work-meta-stack {
+    gap: 12px !important;
+  }
+
   /* CaseFooter grid collapses to single column on mobile */
   .case-footer-grid {
     grid-template-columns: 1fr !important;
@@ -1354,30 +1400,97 @@ footer.case-section-line::before {
     padding-bottom: 64px !important;
   }
 
-  /* Mobile nav menu — stack vertically below the Menu button */
+  /* Hide the desktop nav-menu dropdown on mobile — the portaled
+     .mobile-nav-overlay handles mobile entirely. */
   .nav-menu {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
-    top: calc(100% + 16px);
-    right: 0;
-    left: auto;
-    transform: translate(0, -8px);
+    display: none !important;
   }
-  .nav-menu-zone:hover .nav-menu,
-  .nav-menu-zone:focus-within .nav-menu,
-  .nav-menu-zone.is-open .nav-menu {
-    transform: translate(0, 0);
-  }
-  .nav-link {
-    padding: 4px 0;
-    font-size: 16px;
-  }
-  /* Keep Menu button visible on mobile so users can tap to close */
+  /* Hide the trigger Menu button while the mobile overlay is open. */
   .nav-menu-zone.is-open .menu-button {
-    opacity: 1 !important;
-    transform: none !important;
-    pointer-events: auto !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  /* Kill the invisible hover hit-area around the Menu button. */
+  .nav-menu-zone::before {
+    display: none;
+  }
+
+  /* Portaled fullscreen mobile menu — slides in from the right.
+     Sits above every other layer (cursor stays on top via pointer-events: none). */
+  .mobile-nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: #000;
+    color: #fff;
+    isolation: isolate;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.42s cubic-bezier(0.2, 0.7, 0.2, 1),
+      visibility 0s linear 0.42s;
+    padding: 96px 28px 48px;
+    overflow-y: auto;
+  }
+  .mobile-nav-overlay.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.42s cubic-bezier(0.2, 0.7, 0.2, 1),
+      visibility 0s linear 0s;
+  }
+
+  .mobile-nav-close {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    border-radius: 9999px;
+    cursor: none;
+  }
+  .mobile-nav-close svg {
+    display: block;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-nav-list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: 0s;
+  }
+  .mobile-nav-overlay.is-open .mobile-nav-list li {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: calc(0.18s + var(--i, 0) * 0.07s);
+  }
+  .mobile-nav-list a {
+    display: block;
+    padding: 22px 4px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .mobile-nav-list li[data-hire="true"] a {
+    color: var(--primary);
   }
 }
 
@@ -1388,6 +1501,264 @@ footer.case-section-line::before {
   }
   .next-project-title {
     font-size: clamp(64px, 10vw, 88px) !important;
+  }
+}
+
+/* ---------- Hire me popup ---------- */
+.hire-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: hire-popup-fade 0.25s ease;
+}
+@keyframes hire-popup-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hire-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(6px);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.hire-popup-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+  padding: 32px 32px 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  animation: hire-popup-rise 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@keyframes hire-popup-rise {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hire-popup-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.hire-popup-step {
+  margin: 0;
+  opacity: 0.55;
+}
+.hire-popup-close {
+  background: none;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+.hire-popup-close:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+.hire-popup-title {
+  margin: 0 0 18px;
+  font-size: clamp(32px, 4.4vw, 44px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.hire-popup-progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+.hire-popup-progress span {
+  flex: 1;
+  height: 3px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
+}
+.hire-popup-progress span[data-active="true"] {
+  background: #000;
+}
+.hire-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hire-popup-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.hire-popup-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hire-popup-field .t-label {
+  opacity: 0.55;
+}
+.hire-popup-field input,
+.hire-popup-field select,
+.hire-popup-field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: inherit;
+  background: #f4f4f4;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  resize: none;
+  font-family: inherit;
+}
+.hire-popup-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1.5L6 6.5L11 1.5' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+}
+.hire-popup-field textarea {
+  min-height: 120px;
+  line-height: 1.45;
+}
+.hire-popup-field input:focus,
+.hire-popup-field select:focus,
+.hire-popup-field textarea:focus {
+  border-color: #000;
+  background: #fff;
+}
+.hire-popup-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+.hire-popup-cta {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #000;
+  color: var(--primary);
+  border: 0;
+  border-radius: 9999px;
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.hire-popup-cta:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.hire-popup-cta:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.hire-popup-back {
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+}
+.hire-popup-back:hover:not(:disabled) {
+  color: #000;
+}
+.hire-popup-back:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.hire-popup-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(255, 0, 0, 0.06);
+  color: #b30000;
+  font-size: 13px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 0, 0, 0.18);
+}
+.hire-popup-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 0 4px;
+}
+.hire-popup-tick {
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  animation: hire-popup-rise 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hire-popup-success-body {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.7);
+}
+.hire-popup-success-body strong {
+  color: #000;
+}
+.hire-popup-success .hire-popup-cta {
+  margin-left: 0;
+}
+@media (max-width: 720px) {
+  .hire-popup {
+    padding: 20px;
+    align-items: center;
+  }
+  .hire-popup-card {
+    padding: 24px 20px 20px;
+    border-radius: 18px;
+    max-width: 100%;
+  }
+  .hire-popup-title {
+    font-size: 28px;
+  }
+  .hire-popup-row {
+    grid-template-columns: 1fr;
+  }
+  .hire-popup-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 22px;
   }
 }
 

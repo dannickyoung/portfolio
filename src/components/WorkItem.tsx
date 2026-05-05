@@ -21,11 +21,9 @@ export default function WorkItem({ work, priority, hrefBase = "/works" }: Props)
       style={{ paddingBlock: 48, alignItems: "end" }}
     >
       <div className="row-left">
-        <div
-          style={{ display: "flex", flexDirection: "column", gap: 48 }}
-        >
-          <div style={{ position: "relative" }}>
-            {/* invisible placeholder that reserves space */}
+        <div className="work-meta-stack">
+          <div className="work-desc-slot" style={{ position: "relative" }}>
+            {/* invisible placeholder that reserves space (desktop only) */}
             <p
               aria-hidden
               style={{

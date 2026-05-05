@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollToTop from "@/components/ScrollToTop";
+import HireMePopup from "@/components/HireMePopup";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ScrollToTop />
         <CustomCursor />
         {children}
+        <HireMePopup />
       </body>
     </html>
   );

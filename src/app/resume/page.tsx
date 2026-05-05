@@ -156,11 +156,11 @@ export default function ResumePage() {
               </li>
               <li>
                 <a
-                  href="https://dannickyoung.com"
+                  href="https://dannickyoung.me"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  dannickyoung.com
+                  dannickyoung.me
                 </a>
               </li>
             </ul>
