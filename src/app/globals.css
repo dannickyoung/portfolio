@@ -467,16 +467,54 @@ button.resume-download {
     display: none;
   }
   .resume-page {
-    padding: 48px 20px 80px;
+    padding: 40px 20px 64px;
+  }
+  .resume-hero {
+    gap: 18px;
+    padding-bottom: 32px;
+  }
+  .resume-bio {
+    font-size: 16px;
+  }
+  .resume-contact {
+    gap: 6px 20px;
+    font-size: 13px;
+  }
+  .resume-section {
+    padding: 48px 0;
+  }
+  .resume-section-title {
+    margin-bottom: 28px;
+  }
+  .resume-timeline {
+    gap: 48px;
   }
   .resume-role-grid,
   .resume-skill-row {
     grid-template-columns: 1fr;
     row-gap: 8px;
   }
+  .resume-period {
+    margin-top: 0;
+  }
+  .resume-bullets li {
+    grid-template-columns: 22px 1fr;
+    column-gap: 6px;
+  }
   .resume-split {
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 40px;
+    padding: 48px 0;
+  }
+  .resume-why {
+    gap: 32px;
+  }
+  .resume-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 32px;
+    margin-top: 32px;
   }
 }
 
@@ -1293,6 +1331,27 @@ footer.case-section-line::before {
   }
   .case-footer-grid > [aria-hidden] {
     display: none !important;
+  }
+
+  /* Services section — kill 100vh min-height and hover-only preview on mobile */
+  #services {
+    min-height: auto !important;
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+  .services-preview {
+    display: none !important;
+  }
+  .services-list li {
+    font-size: 20px !important;
+    padding: 14px 0 !important;
+  }
+
+  /* Generic section padding on mobile — tighten the 96px stacks */
+  #works,
+  #about {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
   }
 
   /* Mobile nav menu — stack vertically below the Menu button */

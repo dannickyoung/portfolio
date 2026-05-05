@@ -58,6 +58,7 @@ export default function Services() {
           <div className="row-split on-dark" style={{ alignItems: "stretch" }}>
             <div className="row-left">
               <ul
+                className="services-list"
                 style={{
                   listStyle: "none",
                   margin: 0,
@@ -91,7 +92,7 @@ export default function Services() {
                 })}
               </ul>
             </div>
-            <div className="row-right" style={{ display: "flex" }}>
+            <div className="row-right services-preview" style={{ display: "flex" }}>
               <div
                 style={{
                   flex: 1,

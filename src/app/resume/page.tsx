@@ -154,6 +154,15 @@ export default function ResumePage() {
                   linkedin.com/in/dannickyoung
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://dannickyoung.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  dannickyoung.com
+                </a>
+              </li>
             </ul>
           </Reveal>
         </section>
