@@ -608,7 +608,7 @@ button.resume-download {
   background: #fff;
   mix-blend-mode: difference;
   pointer-events: none;
-  z-index: 100001;
+  z-index: 2147483647;
   transform: translate3d(-100px, -100px, 0);
   transition: width 0.25s ease, height 0.25s ease;
   will-change: transform;
