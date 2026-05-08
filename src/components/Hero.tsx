@@ -30,11 +30,7 @@ export default function Hero() {
 
       <div className="hero-row hero-row-middle">
         <div className="hero-col-left hero-cell-mid-left">
-          <p className="hero-based">
-            Based
-            <br />
-            in Singapore
-          </p>
+          <p className="hero-based">Based in Singapore</p>
         </div>
         <div className="hero-col-right hero-cell-mid-right">
           <h1 className="hero-headline">
