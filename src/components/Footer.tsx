@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import FooterBottomBand from "./FooterBottomBand";
+import LetsTalkButton from "./LetsTalkButton";
 
 type FooterProps = { variant?: "default" | "case" };
 
@@ -196,34 +197,5 @@ function CaseFooter() {
 }
 
 function CtaButton() {
-  return (
-    <a
-      href="mailto:dannick.young@thevicistudio.com"
-      className="group relative inline-flex items-center justify-center overflow-hidden rounded-full cursor-pointer"
-      style={{
-        fontSize: 20,
-        fontWeight: 600,
-        padding: "16px 24px",
-        background: "#000",
-        color: "var(--primary)",
-        minWidth: 180,
-      }}
-    >
-      <span className="inline-flex items-center gap-3 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
-        Let&apos;s talk <span aria-hidden>→</span>
-      </span>
-      <span
-        aria-hidden
-        className="absolute inset-0 flex items-center justify-center gap-3 translate-y-12 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-        style={{
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #000",
-          borderRadius: 9999,
-        }}
-      >
-        Let&apos;s talk <span aria-hidden>→</span>
-      </span>
-    </a>
-  );
+  return <LetsTalkButton variant="large" />;
 }

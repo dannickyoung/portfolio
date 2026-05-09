@@ -49,7 +49,7 @@ export default function About() {
                   margin: 0,
                 }}
               >
-                4+ years
+                5+ years
                 <br />
                 in the game.
               </h3>
@@ -71,8 +71,8 @@ export default function About() {
                   }}
                 >
                   I design apps. I make them pretty and easy to use. I use AI
-                  tools like Cursor for faster development, with better quality
-                  and fewer handoff issues.
+                  tools like Claude Code for faster development and design-to-code
+                  workflows, with better quality and fewer handoff issues.
                 </p>
                 <p
                   style={{

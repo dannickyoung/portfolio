@@ -2,6 +2,7 @@ import Link from "next/link";
 import HeroDotBackground from "./HeroDotBackground";
 import HeroTime from "./HeroTime";
 import NavMenu from "./NavMenu";
+import LetsTalkButton from "./LetsTalkButton";
 
 const navLinks = [
   { label: "Product", href: "#works" },
@@ -44,12 +45,7 @@ export default function Hero() {
           <HeroTime />
         </div>
         <div className="hero-col-right hero-cell-bot-right">
-          <a href="mailto:dannick.young@thevicistudio.com" className="hero-cta">
-            <span className="hero-cta-arrow" aria-hidden>
-              →
-            </span>
-            <span>Let&apos;s talk about your idea</span>
-          </a>
+          <LetsTalkButton variant="hero" />
         </div>
       </div>
     </section>

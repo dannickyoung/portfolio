@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import LetsTalkButton from "@/components/LetsTalkButton";
 import { works, getWork } from "@/lib/works";
 
 export function generateStaticParams() {
@@ -172,34 +173,7 @@ export default async function WorkPage({
                 ))}
               </ul>
 
-              <a
-                href="mailto:dannick.young@thevicistudio.com"
-                className="group relative flex items-center justify-center overflow-hidden rounded-full cursor-pointer"
-                style={{
-                  fontSize: 14,
-                  fontWeight: 600,
-                  padding: "16px 24px",
-                  background: "#000",
-                  color: "#fff",
-                  width: "100%",
-                }}
-              >
-                <span className="inline-flex items-center gap-2 transition-all duration-300 group-hover:-translate-y-12 group-hover:opacity-0">
-                  Let&apos;s talk <span aria-hidden>→</span>
-                </span>
-                <span
-                  aria-hidden
-                  className="absolute inset-0 flex items-center justify-center gap-2 translate-y-12 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-                  style={{
-                    background: "#fff",
-                    color: "#000",
-                    border: "1px solid #000",
-                    borderRadius: 9999,
-                  }}
-                >
-                  Let&apos;s talk <span aria-hidden>→</span>
-                </span>
-              </a>
+              <LetsTalkButton variant="case" />
             </aside>
 
             <div style={{ gridColumn: 2 }} aria-hidden />

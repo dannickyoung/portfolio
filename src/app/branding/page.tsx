@@ -42,14 +42,14 @@ export default function BrandingPage() {
                   </div>
                   <div className="row-right">
                     <h2 className="h-section" style={{ margin: 0 }}>
-                      Web3
+                      AI Application
                     </h2>
                   </div>
                 </div>
               </Reveal>
 
               {brandingWorks
-                .filter((w) => w.group === "web3")
+                .filter((w) => w.group === "branding")
                 .map((w, i) => (
                   <Reveal key={w.slug} delay={i * 60}>
                     <WorkItem
@@ -72,14 +72,14 @@ export default function BrandingPage() {
                   </div>
                   <div className="row-right">
                     <h2 className="h-section" style={{ margin: 0 }}>
-                      AI Application
+                      Web3
                     </h2>
                   </div>
                 </div>
               </Reveal>
 
               {brandingWorks
-                .filter((w) => w.group === "branding")
+                .filter((w) => w.group === "web3")
                 .map((w, i) => (
                   <Reveal key={w.slug} delay={i * 60}>
                     <WorkItem work={w} hrefBase="/branding" />

@@ -3,7 +3,7 @@ export type TileTone = "dark" | "light" | "lime";
 export type MediaBlock =
   | { kind: "single"; tone: TileTone; image?: string }
   | { kind: "double"; tones: [TileTone, TileTone]; images?: [string, string] }
-  | { kind: "video"; tone: TileTone; image?: string };
+  | { kind: "video"; tone: TileTone; image?: string; noSound?: boolean; background?: string };
 
 export type Work = {
   slug: string;

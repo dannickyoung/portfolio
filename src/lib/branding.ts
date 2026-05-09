@@ -6,6 +6,68 @@ type BrandingWork = Work & { group: BrandingGroup };
 export const brandingWorks: BrandingWork[] = [
   {
     group: "branding",
+    slug: "nyxid-branding",
+    title: "NyxID",
+    category: "AI Infrastructure Branding",
+    description:
+      "Brand identity for an open-source agent connectivity gateway, the secure bridge between AI agents and the APIs they need to act on.",
+    tone: "dark",
+    image: "/branding/nyxid/1.png",
+    industry: "AI Infrastructure / Developer Tools",
+    role: "Lead Brand Designer",
+    platform: "Brand Identity / Web / Mobile",
+    timeline: "2026",
+    about:
+      "NyxID is an open-source connectivity gateway that lets Claude, Cursor, and custom AI agents reach public, internal, and localhost APIs without exposing credentials. Every connection is approved from the user's phone, so the brand had to communicate two things at once: deep technical credibility for builders, and unmistakable safety for the humans approving the request.",
+    tags: ["brand identity", "ai infrastructure", "developer tools", "security branding"],
+    problem: [
+      "AI agent infra brands default to either generic dev-tool blue or hype-driven AI-glow, neither signals the seriousness of zero-trust access.",
+      "The brand had to read 'production-grade security' and 'open-source community-friendly' at the same time.",
+      "Needed a system that scales from a CLI status badge to a hero billboard without losing the same threat-level calm.",
+    ],
+    approach:
+      "Built a quiet, high-contrast system anchored by a deep night palette and a single electric purple, the brand color of approval. The mark is a clipped 'N' that reads as a key passing through a gate. Type stays mono-flavored to keep the engineering posture; motion is slow and deliberate, never decorative.",
+    keyDecisions: [
+      {
+        decision: "Night, not noir",
+        explanation:
+          "Picked a deep blue-black instead of pure black so the brand reads as 'after hours, still working' rather than aggressive cyberpunk, suits the calm-control product promise.",
+      },
+      {
+        decision: "One signal color: approval purple",
+        explanation:
+          "Reserved a single saturated violet for any action surface, approve, connect, allow. The color carries the entire trust loop, so users learn it instantly across product and marketing.",
+      },
+      {
+        decision: "Mark as a gate",
+        explanation:
+          "The wordmark's 'N' is clipped diagonally so it reads as a key sliding through a slot, the literal shape of the product's promise.",
+      },
+    ],
+    learnings: [
+      "Security brands earn trust by lowering temperature, not by shouting.",
+      "Reserving one accent color for a single action turns the palette into a UX cue, not just decoration.",
+    ],
+    blocks: [
+      { kind: "single", tone: "dark", image: "/branding/nyxid/1.png" },
+      { kind: "single", tone: "dark", image: "/branding/nyxid/2.png" },
+      {
+        kind: "double",
+        tones: ["dark", "light"],
+        images: ["/branding/nyxid/3.1.png", "/branding/nyxid/3.2.png"],
+      },
+      { kind: "single", tone: "dark", image: "/branding/nyxid/4.png" },
+      {
+        kind: "double",
+        tones: ["dark", "light"],
+        images: ["/branding/nyxid/5.1.png", "/branding/nyxid/5.2.png"],
+      },
+      { kind: "single", tone: "dark", image: "/branding/nyxid/6.png" },
+      { kind: "video", tone: "dark", image: "/branding/nyxid/NyxShowcase_1080p.mp4" },
+    ],
+  },
+  {
+    group: "branding",
     slug: "lumen-branding",
     title: "Lumen",
     category: "Wellness Branding",
@@ -54,6 +116,7 @@ export const brandingWorks: BrandingWork[] = [
       { kind: "single", tone: "lime", image: "/branding/lumen/9.png" },
       { kind: "single", tone: "light", image: "/branding/lumen/10.png" },
       { kind: "single", tone: "dark", image: "/branding/lumen/11.png" },
+      { kind: "video", tone: "dark", image: "/branding/lumen/lumen-site.mp4", noSound: true },
     ],
   },
   {
@@ -121,7 +184,7 @@ export const brandingWorks: BrandingWork[] = [
     description:
       "Girlypop brand identity for a manifestation app, pop, fresh, and unapologetically feminine. Designed for the girls who actually believe.",
     tone: "light",
-    image: "/branding/soulgarden/3.1.png",
+    image: "/branding/soulgarden/1.png",
     industry: "Wellness / Mobile",
     role: "Lead Brand Designer",
     platform: "Brand Identity / Mobile",
@@ -158,16 +221,16 @@ export const brandingWorks: BrandingWork[] = [
       "Shareability is a brand strategy, if it can't live as a screenshot, it doesn't live on Gen-Z phones.",
     ],
     blocks: [
-      { kind: "single", tone: "light", image: "/branding/soulgarden/13.png" },
-      { kind: "single", tone: "lime", image: "/branding/soulgarden/14.png" },
+      { kind: "single", tone: "light", image: "/branding/soulgarden/1.png" },
       {
         kind: "double",
         tones: ["light", "dark"],
-        images: ["/branding/soulgarden/3.1.png", "/branding/soulgarden/18.png"],
+        images: ["/branding/soulgarden/2.1.png", "/branding/soulgarden/2.2.png"],
       },
-      { kind: "single", tone: "dark", image: "/branding/soulgarden/15.png" },
-      { kind: "single", tone: "light", image: "/branding/soulgarden/16.png" },
-      { kind: "single", tone: "lime", image: "/branding/soulgarden/17.png" },
+      { kind: "single", tone: "lime", image: "/branding/soulgarden/3.png" },
+      { kind: "single", tone: "dark", image: "/branding/soulgarden/4.png" },
+      { kind: "single", tone: "light", image: "/branding/soulgarden/5.png" },
+      { kind: "single", tone: "lime", image: "/branding/soulgarden/6.png" },
     ],
   },
   {
@@ -225,6 +288,13 @@ export const brandingWorks: BrandingWork[] = [
       { kind: "single", tone: "lime", image: "/branding/aelf/4.png" },
       { kind: "single", tone: "dark", image: "/branding/aelf/5.png" },
       { kind: "single", tone: "light", image: "/branding/aelf/6.png" },
+      {
+        kind: "video",
+        tone: "dark",
+        image: "/branding/aelf/aelf-site.mp4",
+        noSound: true,
+        background: "linear-gradient(135deg, #f1f1f3 0%, #d6d6da 100%)",
+      },
     ],
   },
   {
@@ -282,6 +352,13 @@ export const brandingWorks: BrandingWork[] = [
       { kind: "single", tone: "dark", image: "/branding/portkey/4.png" },
       { kind: "single", tone: "light", image: "/branding/portkey/5.png" },
       { kind: "single", tone: "lime", image: "/branding/portkey/6.png" },
+      {
+        kind: "video",
+        tone: "dark",
+        image: "/branding/portkey/portkey-site.mp4",
+        noSound: true,
+        background: "linear-gradient(135deg, #f1f1f3 0%, #d6d6da 100%)",
+      },
     ],
   },
   {
@@ -334,6 +411,12 @@ export const brandingWorks: BrandingWork[] = [
       { kind: "single", tone: "light", image: "/branding/mineai/21.png" },
       { kind: "single", tone: "dark", image: "/branding/mineai/22.png" },
       { kind: "single", tone: "lime", image: "/branding/mineai/23.png" },
+      {
+        kind: "video",
+        tone: "dark",
+        image: "/branding/mineai/mineai-intro.mp4",
+        background: "#000000",
+      },
     ],
   },
 ];
