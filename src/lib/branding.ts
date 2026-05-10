@@ -68,6 +68,67 @@ export const brandingWorks: BrandingWork[] = [
   },
   {
     group: "branding",
+    slug: "clard-branding",
+    title: "Clard",
+    category: "AI Networking Branding",
+    description:
+      "Brand identity for an AI-first digital business card platform, premium, intent-driven, and built to live on every screen from a watch face to a hero billboard.",
+    tone: "dark",
+    image: "/branding/clard/thumb.jpg",
+    industry: "AI Software / Networking",
+    role: "Lead Brand Designer",
+    platform: "Brand Identity / Web / Mobile / Wearable",
+    timeline: "2026",
+    about:
+      "Clard replaces static business cards with AI-generated, analytics-rich digital ones that sync straight into Salesforce and HubSpot. The brand had to feel as effortless as the product, premium enough to live next to a Fortune-500 logo, and warm enough that a first-time freelancer feels at home tapping a phone to share.",
+    tags: ["brand identity", "ai", "logo design", "gradient system"],
+    problem: [
+      "AI tooling brands default to either neon hype or beige minimalism, neither carries the trust a sales contact needs to share their card.",
+      "The mark had to survive being squeezed onto a watch face, an app icon, and a kiosk badge without losing recognition.",
+      "Networking brands get lost in a sea of generic gradient logos, the system needed an ownable visual signature.",
+    ],
+    approach:
+      "Built a confident dark-mode-first identity anchored by a custom mark, a saturated electric-violet-to-coral gradient, and a precise geometric wordmark. The gradient does the emotional work; the mark stays calm at any size; the wordmark stays the same anywhere it appears.",
+    keyDecisions: [
+      {
+        decision: "Single ownable gradient",
+        explanation:
+          "Reserved one violet→coral ramp for every primary surface so the brand reads as Clard the moment it loads, before the mark or wordmark land.",
+      },
+      {
+        decision: "Mark designed for 24px first",
+        explanation:
+          "Built the symbol at watch-face scale and let it grow up. Survives app icons, favicons, and OG images without needing alternates.",
+      },
+      {
+        decision: "Dark-first, light-aware",
+        explanation:
+          "Default surfaces are deep neutrals so the gradient pops; a fully balanced light system ships in parallel for marketing and partner co-branding.",
+      },
+    ],
+    learnings: [
+      "Gradient is a brand asset, not a decoration, when one ramp is doing the recognition work, treat it like a wordmark.",
+      "Designing the mark at the smallest possible surface forces the rest of the system to stay disciplined.",
+    ],
+    blocks: [
+      { kind: "single", tone: "dark", image: "/branding/clard/1.png" },
+      { kind: "single", tone: "light", image: "/branding/clard/2.png" },
+      {
+        kind: "double",
+        tones: ["dark", "light"],
+        images: ["/branding/clard/3.1.png", "/branding/clard/3.2.png"],
+      },
+      { kind: "single", tone: "lime", image: "/branding/clard/4.png" },
+      {
+        kind: "double",
+        tones: ["dark", "light"],
+        images: ["/branding/clard/5.1.png", "/branding/clard/5.2.png"],
+      },
+      { kind: "single", tone: "dark", image: "/branding/clard/6.png" },
+    ],
+  },
+  {
+    group: "branding",
     slug: "lumen-branding",
     title: "Lumen",
     category: "Wellness Branding",
