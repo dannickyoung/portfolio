@@ -45,7 +45,7 @@ export const allWorks: Work[] = [
     title: "Portkey Wallet",
     category: "Web3 / AA Wallet",
     description:
-      "Account-abstraction crypto wallet that onboards Web2 users into Web3, no seed phrases, no jargon, just email or social login and guardian-based recovery.",
+      "AA crypto wallet that onboards Web2 users to Web3, no seed phrases, just email or social login.",
     tone: "dark",
     image: "/projects/PORTKEY/1.png",
     industry: "Web3 Blockchain",
@@ -112,7 +112,7 @@ export const allWorks: Work[] = [
     title: "Aelf MineAI",
     category: "AI / GameFi / Web3 dApp",
     description:
-      "GameFi-style AFK mining dApp where AI agents keep mining for players while they're away, then players return to stake, upgrade, and swap strategies, real Web3 mining economy wrapped in an interactive game loop.",
+      "0→1 AFK mining dApp where AI agents mine for you while you're away, stake to upgrade, swap strategies to compete.",
     tone: "lime",
     image: "/projects/AELF_MINEAI/img_1.png",
     industry: "Web3 Blockchain",
@@ -169,7 +169,7 @@ export const allWorks: Work[] = [
     title: "GodGPT",
     category: "AI / LLM",
     description:
-      "An AI companion that offers genuine emotional guidance and spiritual wellness support, tuning into each user's unique frequency.",
+      "AI companion for emotional guidance, tunes into each user's frequency instead of just agreeing.",
     tone: "dark",
     image: "/projects/CHRONO_GODGPT/img_1.png",
     thumbScale: 1.9,
@@ -217,7 +217,7 @@ export const allWorks: Work[] = [
     title: "SoulGarden",
     category: "AI / Manifestation App",
     description:
-      "Manifestation app that turns affirmations into unique AI-generated plants that grow through 2-minute daily rituals, wellness as play, not work.",
+      "0→1 AI manifestation app that grows your affirmations into unique plants through 2-minute daily rituals.",
     tone: "light",
     image: "/projects/SOULGARDEN/img_1.png",
     industry: "AI Software",
@@ -279,7 +279,7 @@ export const allWorks: Work[] = [
     title: "Lumen",
     category: "AI / Wellness App",
     description:
-      "Mobile wellness app that helps users set intentions, turn them into affirmations, and call out to the universe what they want in life.",
+      "0→1 AI wellness app that turns intentions into personal affirmations, daily ritual over journaling.",
     tone: "light",
     image: "/projects/CHRONO_LUMEN/img_1.png",
     industry: "AI Software",
@@ -338,7 +338,7 @@ export const allWorks: Work[] = [
     title: "RiDM",
     category: "Website & Branding",
     description:
-      "Website that effectively showcases RiDM's brilliant chip architecture with clean, user-friendly design focused on storytelling.",
+      "Website that explains a complex chip architecture through visual storytelling, not spec sheets.",
     tone: "dark",
     image: "/projects/VICI_RiDM/img_1.png",
     industry: "Design Agency",
@@ -386,7 +386,7 @@ export const allWorks: Work[] = [
     title: "D'TRAX",
     category: "Website Redesign",
     description:
-      "Redesigned website showcasing D'trax expertise in commercial interior design with improved usability and modern aesthetic.",
+      "Bento-grid website for a commercial interior design studio, storytelling over spec dump.",
     tone: "light",
     image: "/projects/VICI_DTRAX/img_1.png",
     industry: "Design Agency",
@@ -434,7 +434,7 @@ export const allWorks: Work[] = [
     title: "JX Exchange",
     category: "Mobile Trading App",
     description:
-      "Crypto trading app that pierces through the saturated Chinese market with approachable UI and community-driven insights.",
+      "Mobile trading app that breaks into the crowded Chinese crypto market with calmer UI and community insights.",
     tone: "dark",
     image: "/projects/BTCC_JX/img_1.png",
     industry: "Web3 Blockchain",
