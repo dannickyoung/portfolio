@@ -41,66 +41,128 @@ function singles(base: string, count: number, startTone: TileTone = "dark"): Med
 
 export const allWorks: Work[] = [
   {
-    slug: "clard",
-    title: "Clard",
-    category: "AI / Networking",
+    slug: "portkey-wallet",
+    title: "Portkey Wallet",
+    category: "Web3 / AA Wallet",
     description:
-      "AI-powered digital business card platform that turns every handshake into a tracked, CRM-synced lead with real-time intent analytics.",
-    tone: "lime",
-    image: "/projects/CLARD/img_1.png",
-    industry: "AI Software",
+      "Account-abstraction crypto wallet that onboards Web2 users into Web3, no seed phrases, no jargon, just email or social login and guardian-based recovery.",
+    tone: "dark",
+    image: "/projects/PORTKEY/1.png",
+    industry: "Web3 Blockchain",
     role: "Lead Product Designer",
-    platform: "Web / Mobile",
-    timeline: "06/2025 - Present",
+    platform: "Mobile / Browser Extension",
+    timeline: "2024 - 2025",
     about:
-      "Clard is an AI-first networking platform that replaces static business cards with generative, analytics-rich digital ones. Create in seconds, share anywhere, and know exactly who's interested, with intent signals syncing directly to Salesforce, HubSpot, and Sheets.",
-    tags: ["web design", "ai-assisted design", "design system", "analytics ui"],
+      "Portkey is the first AA wallet on aelf, built to migrate users from Web2 to Web3. Sign up with email or social, recover through trusted guardians, move assets across aelf, Ethereum, and EVM, no seed phrase anywhere. Ships on iOS, Android, Chrome, and as an SDK for partner dApps.",
+    tags: ["wallet design", "account abstraction", "web3 onboarding", "design system"],
     problem: [
-      "Physical business cards die the moment they enter a stranger's pocket, no follow-up, no visibility.",
-      "Manually typing leads into a CRM is the biggest bottleneck between an event and a deal.",
-      "Non-designers can't produce branded cards that actually look good.",
-      "Teams and events have no way to deploy consistent, trackable cards at scale.",
+      "Seed phrases lose 99% of Web2 users at the first step, the category's biggest funnel leak.",
+      "Wallet UIs default to crypto-native conventions, gas, hex, network switching, that scare off mainstream audiences.",
+      "Lost-key recovery is binary in most wallets: keep your phrase or lose your assets forever.",
+      "Same product had to ship across mobile, browser extension, and a partner SDK without fragmenting the UX.",
     ],
     approach:
-      "Designed a single system that scales from one card to an entire org: AI generates the card, real-time analytics track intent, and native CRM integrations close the loop. Built personal, team, and event product surfaces on a shared design system.",
+      "Designed the wallet around the social-recovery and DID guarantees of the AA architecture, so the UI could lead with familiar Web2 patterns: email login, friendly recovery, plain-English permissions. Kept a dark-mode-first surface, the screens users see most, but softened it with rounded forms, pill CTAs, and large legible numerics so the product reads as a consumer app, not a terminal. Built a shared design system across mobile, extension, and SDK so a user signing up in a partner game lands in the same flow as the standalone app.",
     keyDecisions: [
       {
-        decision: "AI-first card creation",
+        decision: "Web2 login as the front door",
         explanation:
-          "Removed the design barrier, a name, role, and industry become a production-ready card with picked layouts, typography, and brand colors in under 7 seconds.",
+          "Made email, phone, and social login the primary path. Seed-phrase import stays available, but it lives behind an advanced toggle, not in the user's first 60 seconds.",
       },
       {
-        decision: "Intent-driven analytics",
+        decision: "Consumer-app warmth inside a dark surface",
         explanation:
-          "Surfaced view duration, click behavior, and engagement scoring over raw view counts, so users see who actually matters and what to do next.",
+          "Kept the dark-mode-first canvas crypto users expect, but softened it with rounded modules, pill CTAs, and a single friendly blue accent. The screens stay calm; the actions feel approachable.",
       },
       {
-        decision: "CRM as the retention lever",
+        decision: "Guardians as a designed surface",
         explanation:
-          "Piped intent signals straight into Salesforce, HubSpot, and Sheets, making Clard the first touch of the sales pipeline, not a standalone utility.",
+          "Treated guardian setup and approval as a first-class flow, not a settings-page afterthought. Recovery requests show who is approving, when, and why, turning the most anxious moment in wallet UX into a reassuring one.",
       },
       {
-        decision: "Multi-surface architecture",
+        decision: "Plain-language transaction screens",
         explanation:
-          "One design system powering personal, team, and event products, shared primitives, different permission and billing models.",
+          "Replaced raw hex and network jargon with summarized actions, you are sending X to Y on aelf, gas covered. Power-users can still expand to the raw payload.",
+      },
+      {
+        decision: "One system across mobile, extension, and SDK",
+        explanation:
+          "Built shared primitives so the partner SDK ships the same login, recovery, and signing screens as the standalone app. Users who first meet Portkey inside a game recognize it everywhere.",
       },
     ],
     learnings: [
-      "Intent signals and follow-up prompts drive stickiness far more than view counts.",
-      "AI generation is a wedge for non-designers, it only works if the output is defensibly good on the first try.",
-      "Multi-surface SaaS needs aggressive component reuse; the design system is the product.",
+      "Mainstream wallet UX is won at the recovery flow, not the signup flow, users will only relax once they trust they can come back.",
+      "Plain-language transaction copy is a security feature: clearer screens lead to fewer mis-signed approvals.",
+      "Partner SDKs are a brand surface, the more dApps embed the same flow, the more recognizable the wallet becomes.",
     ],
     blocks: [
-      { kind: "single", tone: "lime", image: "/projects/CLARD/img_1.png" },
-      { kind: "single", tone: "dark", image: "/projects/CLARD/img_2.png" },
+      { kind: "single", tone: "dark", image: "/projects/PORTKEY/1.png" },
+      { kind: "single", tone: "dark", image: "/projects/PORTKEY/2.png" },
       {
         kind: "double",
-        tones: ["dark", "light"],
-        images: ["/projects/CLARD/img_3.png", "/projects/CLARD/img_4.png"],
+        tones: ["dark", "dark"],
+        images: ["/projects/PORTKEY/3.png", "/projects/PORTKEY/3.1.png"],
       },
-      { kind: "single", tone: "light", image: "/projects/CLARD/img_5.png" },
-      { kind: "single", tone: "lime", image: "/projects/CLARD/img_6.png" },
+      { kind: "single", tone: "lime", image: "/projects/PORTKEY/4.png" },
+      { kind: "single", tone: "dark", image: "/projects/PORTKEY/5.png" },
     ],
+  },
+  {
+    slug: "aelf-mineai",
+    title: "Aelf MineAI",
+    category: "AI / GameFi / Web3 dApp",
+    description:
+      "GameFi-style AFK mining dApp where AI agents keep mining for players while they're away, then players return to stake, upgrade, and swap strategies, real Web3 mining economy wrapped in an interactive game loop.",
+    tone: "lime",
+    image: "/projects/AELF_MINEAI/img_1.png",
+    industry: "Web3 Blockchain",
+    role: "Senior Product Designer",
+    platform: "Web / Mobile / dApp",
+    timeline: "02/2025 - 06/2025",
+    about:
+      "MineAI turns crypto mining into an AFK strategy game. AI agents mine on the player's behalf while they're away; players come back to stake, upgrade them, and swap strategies, every action settling on-chain. A category usually reserved for hardware-heavy operators, reframed as something you actually open.",
+    tags: [
+      "web3 experience design",
+      "gamefi ui/ux",
+      "ai agent interfaces",
+      "design systems",
+    ],
+    problem: [
+      "Crypto mining excludes anyone without specialised hardware or technical knowledge, the category locks out 99% of would-be users.",
+      "Existing mining dApps treat the chain as infrastructure, not as something a player would open daily, no loop, no reason to return.",
+      "Staking, agents, and rewards usually live in separate jargon-heavy screens, the strategy never feels like a game.",
+      "Mainstream users need a moment-to-moment reason to engage, not just an APY number on a dashboard.",
+    ],
+    approach:
+      "Designed the product as a strategy game sitting on a real on-chain mining economy. AI agents are the player's roster, staking is the resource they manage, and strategies are the moves they pick. Built a single gamified surface that keeps the chain mechanics visible without making them the whole experience, and scaled it to web, mobile, and dApp shells from one design system.",
+    keyDecisions: [
+      {
+        decision: "AI agents as the player's roster",
+        explanation:
+          "Framed mining as collecting and deploying agents instead of running rigs. Each agent has stats, a specialty, and a visible upgrade path, gives players something to care about beyond yield numbers.",
+      },
+      {
+        decision: "Staking as resource management",
+        explanation:
+          "Treated stake as the in-game resource that powers up agents, not as a separate finance product. Players spend, recover, and reallocate stake the same way they would in-game currency, the DeFi mechanic stays, the framing changes.",
+      },
+      {
+        decision: "Strategies over passive yield",
+        explanation:
+          "Built a strategy layer on top of the mining loop, players pick how their agents allocate work, when to compound, when to cash out. Replaces the passive set-and-forget mining UX with something worth opening daily.",
+      },
+      {
+        decision: "One gamified surface across web, mobile, and dApp",
+        explanation:
+          "Single design system carries the same agents, stakes, and strategy screens across every shell. New players can start on web and continue mid-strategy from a phone, the game state, not the device, is the product.",
+      },
+    ],
+    learnings: [
+      "GameFi works when the on-chain mechanics are the gameplay, not a layer underneath it, surface the economy, don't hide it.",
+      "Strategy choices retain players far better than passive yield numbers, decisions are the loop.",
+      "Mainstream users will engage with mining if it's framed as a roster of characters they own, not a stack of hardware they operate.",
+    ],
+    blocks: singles("/projects/AELF_MINEAI", 6, "lime"),
   },
   {
     slug: "chrono-godgpt",
@@ -116,7 +178,7 @@ export const allWorks: Work[] = [
     platform: "Web / AI / LLM",
     timeline: "06/2025 - Present",
     about:
-      "GodGPT is a spiritual and wellness LLM built to provide authentic emotional support and guidance. Unlike typical AI assistants that simply agree with users, GodGPT is designed to tune into each user's emotional frequency and offer thoughtful, resonant responses that facilitate genuine healing and personal growth.",
+      "GodGPT is a spiritual and wellness LLM built for authentic emotional support. Unlike AI assistants that just agree, GodGPT tunes into each user's emotional frequency and offers resonant responses that move them toward healing, not validation.",
     tags: ["web design", "ai/llm", "chat interface", "ui/ux"],
     problem: [
       "Existing LLMs act as yes-men, providing generic responses without emotional depth",
@@ -153,7 +215,7 @@ export const allWorks: Work[] = [
   {
     slug: "soulgarden",
     title: "SoulGarden",
-    category: "Wellness Mobile App",
+    category: "AI / Manifestation App",
     description:
       "Manifestation app that turns affirmations into unique AI-generated plants that grow through 2-minute daily rituals, wellness as play, not work.",
     tone: "light",
@@ -163,7 +225,7 @@ export const allWorks: Work[] = [
     platform: "Mobile / iOS / Android",
     timeline: "06/2025 - Present",
     about:
-      "SoulGarden translates a user's intention into a one-of-a-kind AI-generated plant that they water daily with personalized affirmations. Plants evolve across four growth stages (seed, sprout, growing, bloom) and live in a collectible encyclopedia. A quick, tactile break from doom-scrolling built for ADHD minds and busy schedules.",
+      "SoulGarden turns a user's intention into a unique AI-generated plant they water daily with personalised affirmations. Plants grow through four stages and live in a collectible encyclopedia, a tactile break from doom-scrolling, built for ADHD minds.",
     tags: ["mobile application", "wellness", "ai-generated content", "ui motion"],
     problem: [
       "Vision boards and journals sit static after day one, no feedback loop, no momentum.",
@@ -215,7 +277,7 @@ export const allWorks: Work[] = [
   {
     slug: "chrono-lumen",
     title: "Lumen",
-    category: "Wellness Mobile App",
+    category: "AI / Wellness App",
     description:
       "Mobile wellness app that helps users set intentions, turn them into affirmations, and call out to the universe what they want in life.",
     tone: "light",
@@ -269,58 +331,6 @@ export const allWorks: Work[] = [
       { kind: "single", tone: "light", image: "/projects/CHRONO_LUMEN/img_6.png" },
       { kind: "single", tone: "lime", image: "/projects/CHRONO_LUMEN/img_7.png" },
     ],
-  },
-  {
-    slug: "aelf-mineai",
-    title: "Aelf MineAI",
-    category: "AI / Web3 dApp",
-    description:
-      "AI-powered crypto mining dApp that makes on-chain mining simple, engaging, and accessible for new users.",
-    tone: "lime",
-    image: "/projects/AELF_MINEAI/img_1.png",
-    industry: "Web3 Blockchain",
-    role: "Senior Product Designer",
-    platform: "Web / Mobile / dApp",
-    timeline: "02/2025 - 06/2025",
-    about:
-      "MineAI uses AI to simplify mining, automate processes, guide users, and create a gamified experience with an intuitive interface on all devices and Web3 community-driven progression.",
-    tags: [
-      "web3 experience design",
-      "ui/ux design",
-      "ai-enhanced interface design",
-      "design systems",
-    ],
-    problem: [
-      "Users are overwhelmed by complex interfaces",
-      "Lack of guidance for new users",
-      "No incentive to stay engaged",
-      "Current platforms are technical, hardware-heavy, and lack AI features or user-friendly design",
-    ],
-    approach:
-      "Leveraged AI to automate complex mining processes, gamified the experience with community-driven progression, and built an intuitive multi-device interface.",
-    keyDecisions: [
-      {
-        decision: "AI-powered simplification",
-        explanation:
-          "Leveraged AI to automate complex mining processes and guide users through the experience.",
-      },
-      {
-        decision: "Gamified experience",
-        explanation:
-          "Created engaging game mechanics with community-driven progression to incentivize user retention.",
-      },
-      {
-        decision: "Intuitive multi-device interface",
-        explanation:
-          "Designed user-friendly interface that works seamlessly across all devices.",
-      },
-    ],
-    learnings: [
-      "AI can dramatically simplify complex Web3 processes for mainstream users",
-      "Gamification and community features are essential for user engagement in dApps",
-      "Intuitive interfaces are crucial for onboarding new users to Web3",
-    ],
-    blocks: singles("/projects/AELF_MINEAI", 6, "lime"),
   },
   {
     slug: "vici-ridm",
@@ -420,6 +430,7 @@ export const allWorks: Work[] = [
   },
   {
     slug: "btcc-jx",
+    archived: true,
     title: "JX Exchange",
     category: "Mobile Trading App",
     description:
