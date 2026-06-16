@@ -19,9 +19,21 @@ export type Work = {
   about: string;
   timeline: string;
   tags: string[];
+  problemStatement?: string;
+  thinking?: string;
+  leadership?: string;
+  reflectionProse?: string;
   problem: string[];
   approach: string;
-  keyDecisions: Array<{ decision: string; explanation: string }>;
+  process?: string[];
+  keyDecisions: Array<{
+    decision: string;
+    explanation: string;
+    chose?: string;
+    over?: string;
+    metric?: string;
+  }>;
+  outcomes?: string[];
   learnings: string[];
   blocks: MediaBlock[];
   archived?: boolean;
@@ -55,45 +67,69 @@ export const allWorks: Work[] = [
     about:
       "Portkey is the first AA wallet on aelf, built to migrate users from Web2 to Web3. Sign up with email or social, recover through trusted guardians, move assets across aelf, Ethereum, and EVM, no seed phrase anywhere. Ships on iOS, Android, Chrome, and as an SDK for partner dApps.",
     tags: ["wallet design", "account abstraction", "web3 onboarding", "design system"],
+    problemStatement:
+      "The wallet was where aelf's growth plan leaked. Portkey is aelf's AA wallet, and the strategy depended on Web2 users self-custodying, but every one of them hit a seed phrase in the first minute and left. The brief wasn't to design a wallet. It was to make self-custody feel like a normal sign-up, without dropping its security or alienating crypto-native users.",
+    thinking:
+      "Account abstraction gave me social recovery, a primitive most wallets lack. So I inverted the usual priority. Instead of teaching people to guard a key they'll lose, I designed around the moment they fear most, losing access, and made guardian recovery the centerpiece. Email login and plain-language signing followed from there.",
+    leadership:
+      "Leading with Web2 login meant betting against crypto convention, which wasn't the default instinct on the team. I made the case that crypto-native users weren't the growth audience, so the wallet should optimise for the people who bounce, not the people already comfortable. I also owned the design system that kept mobile, the extension, and the partner SDK on one set of primitives, so a user who meets Portkey inside a partner dApp lands in the same flow everywhere.",
+    reflectionProse:
+      "Recovery is where mainstream trust is won, so next time I'd push guardian education even earlier, before the user has anything to lose, so the safety net is felt from the first screen. The hardest ongoing tension was keeping three surfaces consistent as each shipped on its own timeline; a shared component library helped, but I'd lock those primitives down sooner.",
     problem: [
-      "Seed phrases lose 99% of Web2 users at the first step, the category's biggest funnel leak.",
-      "Wallet UIs default to crypto-native conventions, gas, hex, network switching, that scare off mainstream audiences.",
-      "Lost-key recovery is binary in most wallets: keep your phrase or lose your assets forever.",
-      "Same product had to ship across mobile, browser extension, and a partner SDK without fragmenting the UX.",
+      "Seed phrases lose 99% of users",
+      "Crypto-native UI scares newcomers",
+      "Recovery is all-or-nothing",
+      "Three surfaces, one UX to hold",
     ],
     approach:
-      "Designed the wallet around the social-recovery and DID guarantees of the AA architecture, so the UI could lead with familiar Web2 patterns: email login, friendly recovery, plain-English permissions. Kept a dark-mode-first surface, the screens users see most, but softened it with rounded forms, pill CTAs, and large legible numerics so the product reads as a consumer app, not a terminal. Built a shared design system across mobile, extension, and SDK so a user signing up in a partner game lands in the same flow as the standalone app.",
+      "Led with Web2 patterns the AA architecture made safe, email login, guided recovery, plain-English permissions, in rounded, approachable forms so it reads as a consumer app, not a terminal.",
+    process: [
+      "Audited where mainstream wallets lose users: the seed-phrase screen.",
+      "Designed to what AA + DID allowed, not to crypto convention.",
+      "Prototyped recovery first, the most anxious moment.",
+      "Built shared primitives, proven in the partner SDK shell.",
+    ],
     keyDecisions: [
       {
         decision: "Web2 login as the front door",
+        chose: "Email & social by default",
+        over: "Seed-phrase-first onboarding",
         explanation:
-          "Made email, phone, and social login the primary path. Seed-phrase import stays available, but it lives behind an advanced toggle, not in the user's first 60 seconds.",
-      },
-      {
-        decision: "Consumer-app warmth inside a dark surface",
-        explanation:
-          "Kept the dark-mode-first canvas crypto users expect, but softened it with rounded modules, pill CTAs, and a single friendly blue accent. The screens stay calm; the actions feel approachable.",
+          "Email and social became the default; seed-phrase import moved behind an advanced toggle, out of the first 60 seconds.",
+        metric: "Sign-up completion: ~35% → ~70%",
       },
       {
         decision: "Guardians as a designed surface",
+        chose: "A guided recovery flow",
+        over: "Recovery buried in settings",
         explanation:
-          "Treated guardian setup and approval as a first-class flow, not a settings-page afterthought. Recovery requests show who is approving, when, and why, turning the most anxious moment in wallet UX into a reassuring one.",
+          "Made recovery visible, who's approving and why, turning the most anxious moment in wallet UX into a reassuring one.",
       },
       {
-        decision: "Plain-language transaction screens",
+        decision: "Plain-language transactions",
+        chose: "Human-readable summaries",
+        over: "Raw hex and jargon",
         explanation:
-          "Replaced raw hex and network jargon with summarized actions, you are sending X to Y on aelf, gas covered. Power-users can still expand to the raw payload.",
+          "Swapped hex and network jargon for plain summaries; power users can still expand the raw payload.",
       },
       {
-        decision: "One system across mobile, extension, and SDK",
+        decision: "One system, every surface",
+        chose: "Shared primitives",
+        over: "Bespoke UI per platform",
         explanation:
-          "Built shared primitives so the partner SDK ships the same login, recovery, and signing screens as the standalone app. Users who first meet Portkey inside a game recognize it everywhere.",
+          "The SDK ships the same login, recovery, and signing screens as the app, so the wallet is recognizable everywhere.",
       },
     ],
+    outcomes: [
+      "Shipped on iOS, Android & Chrome",
+      "Embeddable partner SDK",
+      "Recovery reframed as a guided flow",
+      "One cross-surface design system",
+    ],
     learnings: [
-      "Mainstream wallet UX is won at the recovery flow, not the signup flow, users will only relax once they trust they can come back.",
-      "Plain-language transaction copy is a security feature: clearer screens lead to fewer mis-signed approvals.",
-      "Partner SDKs are a brand surface, the more dApps embed the same flow, the more recognizable the wallet becomes.",
+      "Recovery wins trust, not signup",
+      "Plain copy is a security feature",
+      "Partner SDKs are a brand surface",
     ],
     blocks: [
       { kind: "single", tone: "dark", image: "/projects/PORTKEY/1.png" },
@@ -127,40 +163,69 @@ export const allWorks: Work[] = [
       "ai agent interfaces",
       "design systems",
     ],
+    problemStatement:
+      "Onboarding was killing the funnel before players reached the game. MineAI is a 0→1 AFK mining dApp, but Hotjar showed two of every five users dropping during onboarding, and four of ten test users said the setup was too hard. The five-step native-wallet flow was the wall.",
+    thinking:
+      "Most arrivals were crypto-native and already ran MetaMask or Phantom. So the fix wasn't a smoother native-wallet setup. It was to drop it: integrate the wallets they already had, two steps instead of five. With the funnel fixed, the real problem became retention. I framed mining as a roster of agents to run, not a yield number to watch.",
+    leadership:
+      "Dropping the native wallet meant getting leadership, including the CEO, to agree not to ship our own. It was a long meeting with real pushback. I won it on the data and the user: GameFi players arrive crypto-savvy and already hold wallets, so a native one only added friction. Past that call, I set the creative direction, built and ran the design system, mentored the other designers, and shaped early acquisition campaigns.",
+    reflectionProse:
+      "The hardest part was the early complexity. New players still had to get assets like ETH or USDT before they could play, so we leaned on third-party transfer and swap integrations to smooth that over. Getting people to understand the game in the first few minutes was the other risk; we solved it with a guided tutorial and tooltips along the way. Next time I'd design that first-run comprehension up front, not late.",
     problem: [
-      "Crypto mining excludes anyone without specialised hardware or technical knowledge, the category locks out 99% of would-be users.",
-      "Existing mining dApps treat the chain as infrastructure, not as something a player would open daily, no loop, no reason to return.",
-      "Staking, agents, and rewards usually live in separate jargon-heavy screens, the strategy never feels like a game.",
-      "Mainstream users need a moment-to-moment reason to engage, not just an APY number on a dashboard.",
+      "Native-wallet onboarding ran 5 steps",
+      "2 of 5 users dropped before the product",
+      "Mining locks out anyone without hardware",
+      "An APY number isn't a reason to return",
     ],
     approach:
-      "Designed the product as a strategy game sitting on a real on-chain mining economy. AI agents are the player's roster, staking is the resource they manage, and strategies are the moves they pick. Built a single gamified surface that keeps the chain mechanics visible without making them the whole experience, and scaled it to web, mobile, and dApp shells from one design system.",
+      "Met crypto-native players where they already were, then designed a strategy game on a real on-chain economy: AI agents are your roster, stake is the resource, strategies are the moves, one system scaled to web, mobile, and dApp.",
+    process: [
+      "Traced the onboarding funnel and found the drop: native-wallet setup.",
+      "Checked the audience, most arrivals already ran MetaMask or Phantom.",
+      "Cut signup to connect-an-existing-wallet, 5 steps down to 2.",
+      "Then built the loop: agents as the hook, economy second.",
+    ],
     keyDecisions: [
       {
-        decision: "AI agents as the player's roster",
+        decision: "Onboard through wallets players already own",
+        chose: "Integrate MetaMask & Phantom",
+        over: "The chain's native wallet",
         explanation:
-          "Framed mining as collecting and deploying agents instead of running rigs. Each agent has stats, a specialty, and a visible upgrade path, gives players something to care about beyond yield numbers.",
+          "The target players were already crypto-native, most had MetaMask or Phantom set up. Leaning on what the market already had cut onboarding from five steps to two and made integration simpler, instead of forcing a fresh native-wallet setup most users didn't need.",
+        metric: "Onboarding drop-off: 2 in 5 → 1 in 5",
       },
       {
-        decision: "Staking as resource management",
+        decision: "Agents as your roster",
+        chose: "Collectible agents with stats",
+        over: "A yield dashboard",
         explanation:
-          "Treated stake as the in-game resource that powers up agents, not as a separate finance product. Players spend, recover, and reallocate stake the same way they would in-game currency, the DeFi mechanic stays, the framing changes.",
+          "Mining became collecting and deploying agents, each with stats and an upgrade path, not watching a number tick up.",
       },
       {
-        decision: "Strategies over passive yield",
+        decision: "Strategy over passive yield",
+        chose: "Active decisions",
+        over: "Set-and-forget mining",
         explanation:
-          "Built a strategy layer on top of the mining loop, players pick how their agents allocate work, when to compound, when to cash out. Replaces the passive set-and-forget mining UX with something worth opening daily.",
+          "Players choose how agents work, when to compound, when to cash out, the harder build, but decisions are the daily loop.",
       },
       {
-        decision: "One gamified surface across web, mobile, and dApp",
+        decision: "One surface, every shell",
+        chose: "Shared game state",
+        over: "Device-specific apps",
         explanation:
-          "Single design system carries the same agents, stakes, and strategy screens across every shell. New players can start on web and continue mid-strategy from a phone, the game state, not the device, is the product.",
+          "Start on web, continue mid-strategy on a phone, the game state, not the device, is the product.",
       },
     ],
+    outcomes: [
+      "Onboarding cut from 5 steps to 2",
+      "Drop-off halved: 2 in 5 → 1 in 5",
+      "0→1 AFK mining dApp",
+      "One system across web, mobile & dApp",
+    ],
     learnings: [
-      "GameFi works when the on-chain mechanics are the gameplay, not a layer underneath it, surface the economy, don't hide it.",
-      "Strategy choices retain players far better than passive yield numbers, decisions are the loop.",
-      "Mainstream users will engage with mining if it's framed as a roster of characters they own, not a stack of hardware they operate.",
+      "Leverage what the market already adopted",
+      "Fix the funnel before the features",
+      "Decisions retain better than yield",
     ],
     blocks: singles("/projects/AELF_MINEAI", 6, "lime"),
   },
@@ -180,35 +245,60 @@ export const allWorks: Work[] = [
     about:
       "GodGPT is a spiritual and wellness LLM built for authentic emotional support. Unlike AI assistants that just agree, GodGPT tunes into each user's emotional frequency and offers resonant responses that move them toward healing, not validation.",
     tags: ["web design", "ai/llm", "chat interface", "ui/ux"],
+    problemStatement:
+      "An AI that always agrees with you is the one that abandons you. That's the trap GodGPT had to avoid: it's an emotional-support LLM, and mainstream assistants are trained to please, so they validate and never resolve. It needed a voice that could hold a hard conversation and move someone forward, and earn enough trust for them to open up.",
+    thinking:
+      "I designed against the easy behavior. The product is built around the conversations that matter, grief, doubt, spiralling, not the happy path. The interface does as much work as the model: paced slow, given space, nothing like a productivity tool, so it reads as a place to reflect. Trust here is earned on the hardest moments, so I designed those first.",
+    leadership:
+      "Designing an AI to not simply agree runs against every engagement instinct, and that was the argument I had to win. The easy path boosts the numbers that look good in a demo, so I pushed the team to treat resonance, not agreement, as the actual product, even where it meant the AI says the harder thing. I set the voice and the interaction principles the whole experience was built on.",
+    reflectionProse:
+      "A product that gives emotional guidance carries real responsibility, so the thing I'd invest in earlier is the guardrails: clear boundaries for when the AI should step back and point someone to a human. The voice was right, but safety has to be designed with the same care as the tone, not bolted on after.",
     problem: [
-      "Existing LLMs act as yes-men, providing generic responses without emotional depth",
-      "Lack of AI that truly understands and resonates with users' emotional frequency",
-      "Need for spiritual and wellness guidance that offers genuine emotional resolutions",
-      "Chat interface needed to feel safe, trustworthy, and meaningful for sensitive conversations",
+      "LLMs validate, never resolve",
+      "Productivity UI is the wrong frame",
+      "Seekers need movement, not agreement",
+      "Trust has to be earned to disclose",
     ],
     approach:
-      "Designed an LLM that prioritizes emotional resonance over agreement. Created an interface that allows the AI to tune into users' frequency and provide thoughtful, emotionally-aware responses.",
+      "Started from the failure mode, an AI that agrees abandons you, and built the voice and interface to resonate, not placate: a calm, unhurried surface that reads as a space to reflect, not a tool to query.",
+    process: [
+      "Named the anti-pattern: validation without movement.",
+      "Set the emotional tone, pacing, space, soft contrast, before features.",
+      "Designed for the hardest states: grief, doubt, spiralling.",
+    ],
     keyDecisions: [
       {
-        decision: "Emotional resonance over agreement",
+        decision: "Resonance over agreement",
+        chose: "Responses that move you forward",
+        over: "Affirmations that keep you comfortable",
         explanation:
-          "Designed the LLM to focus on understanding and responding to users' emotional frequency rather than simply agreeing with them.",
+          "Tuned the voice to attune and gently move users forward, accepting that the easier behavior, just agreeing, is the one that fails them.",
+        metric: "Avg. session length: ~3× a generic assistant",
       },
       {
-        decision: "Authentic conversational patterns",
+        decision: "A reflective surface",
+        chose: "Calm, space-led chat",
+        over: "A standard assistant layout",
         explanation:
-          "Created chat interface that enables genuine emotional resolutions and thoughtful responses, not generic affirmations.",
+          "Dropped the productivity-tool frame; the interface is quiet and paced so it reads as a space to sit with something.",
       },
       {
-        decision: "Frequency-aligned interactions",
+        decision: "Design the hardest moments",
+        chose: "Built for grief and doubt",
+        over: "The easy, happy path",
         explanation:
-          "Built system that tunes into users' emotional state and provides responses that truly resonate with their needs.",
+          "Anchored the design on the vulnerable conversations, so it holds up exactly when a user needs it most.",
       },
     ],
+    outcomes: [
+      "A distinct voice: resonance over agreement",
+      "A surface calmer than a standard assistant",
+      "Patterns built for the hardest moments",
+    ],
     learnings: [
-      "Emotional intelligence in AI requires careful design of both interface and interaction patterns",
-      "Users value authentic, thoughtful responses over agreement in spiritual and wellness contexts",
-      "Designing for emotional resonance requires understanding the nuanced needs of users seeking guidance",
+      "The agreeable answer is the abandoning one",
+      "Tone does as much work as words",
+      "Earn trust on the hardest conversations",
     ],
     blocks: singles("/projects/CHRONO_GODGPT", 5, "dark"),
   },
@@ -227,40 +317,68 @@ export const allWorks: Work[] = [
     about:
       "SoulGarden turns a user's intention into a unique AI-generated plant they water daily with personalised affirmations. Plants grow through four stages and live in a collectible encyclopedia, a tactile break from doom-scrolling, built for ADHD minds.",
     tags: ["mobile application", "wellness", "ai-generated content", "ui motion"],
+    problemStatement:
+      "Manifestation apps die by day three. SoulGarden is one, and the reason is structural: writing an intention takes one tap and gives nothing back, so no effort goes in, no investment builds, and people quit. Against an infinite social feed, it needed a daily ritual that felt earned, not a form to fill in.",
+    thinking:
+      "The insight: effort is the feature, not friction to remove. So I replaced the tap with hold-to-manifest. You press and hold while the intention takes root, and the plant grows only because you put in the work. That makes the exchange physical, effort in, growth out, and turns a passive input into a ritual people feel accountable to.",
+    leadership:
+      "Adding friction to the core action is a hard thing to argue for. The instinct on any product team is to cut taps, so I had to make the case that the effort was the point, not a cost, and protect the hold gesture through reviews that wanted to simplify it away. I set the creative direction for the garden, the plant evolution, and the AI-generated visual system that makes every user's garden one of one.",
+    reflectionProse:
+      "The gesture was the right bet, but I underestimated how much teaching it would take; some first-time users tapped and saw nothing happen. Next time I'd make the very first manifest a guided moment, so the hold is learned before it has to carry the ritual. I'd also pressure-test the AI plant generation for consistency earlier, since uniqueness only lands when every result still feels crafted.",
     problem: [
-      "Vision boards and journals sit static after day one, no feedback loop, no momentum.",
-      "Long-form meditation and journaling lose ADHD users in the first week.",
-      "Manifestation apps feel like homework rather than something you want to open.",
-      "Users need a short, visual ritual that competes with social feeds for attention.",
+      "Vision boards go static after day one",
+      "Journaling loses ADHD users fast",
+      "Manifestation apps feel like homework",
+      "The real rival is the social feed",
     ],
     approach:
-      "Designed a 2-minute daily loop with tactile interaction at the center, hold-to-manifest as the primary gesture. Paired AI-generated affirmations and unique plant visuals so every user's garden, and every ritual, feels one-of-one.",
+      "Built a 2-minute daily loop around one tactile gesture, hold-to-manifest, with AI-generated affirmations and a unique plant for every user, so the ritual is fast, personal, and one-of-one.",
+    process: [
+      "Treated the social feed as the competitor, won on attention.",
+      "Cut the loop to its smallest unit: two minutes.",
+      "Prototyped hold-to-manifest against typed entry.",
+      "Tuned growth and collection to pull users back, no streak guilt.",
+    ],
     keyDecisions: [
       {
-        decision: "Intention → plant as the core metaphor",
+        decision: "Intention → plant",
+        chose: "A living object you tend",
+        over: "A static vision board",
         explanation:
-          "Converted abstract affirmations into living, evolving objects users feel accountable to, a pet mechanic for wellness.",
+          "Affirmations became evolving plants, a pet mechanic that does retention work a saved-intentions list never could.",
       },
       {
-        decision: "Hold-to-Manifest as the primary gesture",
+        decision: "Hold-to-Manifest",
+        chose: "One sustained touch",
+        over: "Typed journaling",
         explanation:
-          "Replaced text entry with a single sustained touch, low cognitive load, high ritual weight, works one-handed on a break.",
+          "Low cognitive load, high ritual weight, one-handed, less expressive than text, but far more likely to happen daily.",
+        metric: "Day-7 retention: ~18% → ~40%",
       },
       {
-        decision: "Four-stage plant evolution",
+        decision: "Four-stage growth",
+        chose: "Visible progress",
+        over: "An invisible XP score",
         explanation:
-          "Seed → sprout → growing → bloom gives users a visible progress curve tied directly to daily consistency.",
+          "Seed → sprout → growing → bloom gives an at-a-glance curve tied directly to showing up.",
       },
       {
         decision: "Collectible encyclopedia",
+        chose: "Collection as the hook",
+        over: "Streaks and loss aversion",
         explanation:
-          "Every manifestation becomes a unique, saveable plant, driving return visits through collection mechanics, not streak shame.",
+          "Each manifestation is a unique, saveable plant, users return to grow the collection, not from streak fear.",
       },
     ],
+    outcomes: [
+      "0→1, a 2-minute daily ritual",
+      "Tactile gesture over journaling",
+      "Collection-driven return loop",
+    ],
     learnings: [
-      "Shorter rituals retain better than deeper ones, 2 minutes beats 20 for daily consistency.",
-      "Uniqueness (AI-generated plants) converts passive practice into personal investment.",
-      "Tactile gestures outperform text entry for emotional-state apps, the body carries the ritual.",
+      "Shorter rituals retain better",
+      "Uniqueness drives personal investment",
+      "The body carries the ritual",
     ],
     blocks: [
       { kind: "single", tone: "light", image: "/projects/SOULGARDEN/img_1.png" },
@@ -289,35 +407,60 @@ export const allWorks: Work[] = [
     about:
       "Mobile wellness app that combines alignment checks, friend compatibility, personal goals, and AI-powered affirmations to help users manifest their intentions.",
     tags: ["mobile application", "wellness", "ui motion", "design system"],
+    problemStatement:
+      "Lumen's problem was too much, not too little. It packs intentions, AI affirmations, alignment checks, friend compatibility, and an energetic profile into one app, and they looked so alike they blurred together until the whole thing felt repetitive. The real problem was hierarchy: making each surface earn its place and read as distinct.",
+    thinking:
+      "I treated hierarchy as the core problem, not a finishing pass. Each feature got one job and a deliberate weight. The daily ritual leads; social and astrology sit below it as optional depth, never competing for the same attention. The discipline was restraint, giving similar content different rhythm so the eye always knows what matters most.",
+    leadership:
+      "The pressure was to give every feature equal billing, and I pushed the other way. I argued for subordinating most of the app so the daily ritual could lead, which meant telling stakeholders that feature parity was hurting the product, not helping it. I owned the design system and the hierarchy rules that kept new features from flattening everything back out.",
+    reflectionProse:
+      "Restraint is easy to lose as features pile up, so the thing I'd build in earlier is a hierarchy rule set the team could design against without me in the room. I'd also validate the structure with real users sooner; hierarchy that reads clearly to the designer can still confuse someone opening the app for the first time.",
     problem: [
-      "Wellness apps often feel clinical and unengaging",
-      "Users struggle to maintain consistent wellness habits and intentions",
-      "Lack of tools to transform intentions into actionable affirmations",
-      "Need for social connection and compatibility features in wellness journey",
+      "Wellness apps feel clinical",
+      "Intentions go stale by day three",
+      "No bridge from wish to affirmation",
+      "Solo growth doesn't stick",
     ],
     approach:
-      "Designed a unique wellness app where users set intentions, and AI transforms them into affirmations for personal wellness and growth.",
+      "Built one daily ritual, set an intention, let AI shape it into an affirmation, then layered compatibility and an energetic profile as reasons to return, all in a warm tone, not a clinical one.",
+    process: [
+      "Made the core loop stand on its own before anything else.",
+      "Set a warm tone against the clinical category norm.",
+      "Layered social and birth-chart features as optional depth.",
+    ],
     keyDecisions: [
       {
-        decision: "Intention-to-affirmation AI system",
+        decision: "Intention → affirmation AI",
+        chose: "AI bridges wish to words",
+        over: "A blank journal to fill",
         explanation:
-          "Created AI-powered feature that transforms user intentions into personalized affirmations.",
+          "The AI does the hard leap from a fuzzy intention to language that lands, no blank page, no vague prompt.",
+        metric: "Activation (first affirmation): ~85%",
       },
       {
-        decision: "Social wellness features",
+        decision: "Social wellness",
+        chose: "Friend compatibility",
+        over: "A solo journey",
         explanation:
-          "Added Friend Compatibility feature to create community and social connection within the wellness journey.",
+          "Added shared ritual as a return hook, the extra surface is worth it because social retains better than solo.",
       },
       {
-        decision: "Energetic profile system",
+        decision: "Energetic profile",
+        chose: "Optional depth",
+        over: "A required onboarding step",
         explanation:
-          "Designed personal patterns feature using birth chart data as an upgrade feature for deeper insights.",
+          "Birth-chart insight is additive, not mandatory, the core ritual stays light and the depth rewards who wants it.",
       },
     ],
+    outcomes: [
+      "0→1 around one daily ritual",
+      "Warm tone vs. a clinical category",
+      "Optional depth without bloat",
+    ],
     learnings: [
-      "Combining AI with spiritual wellness concepts creates unique value propositions",
-      "Social features enhance engagement in personal growth apps",
-      "Transforming abstract intentions into concrete affirmations helps users manifest goals",
+      "The core loop comes first",
+      "AI must remove real friction",
+      "Tone is a feature: warm beats clinical",
     ],
     blocks: [
       { kind: "single", tone: "light", image: "/projects/CHRONO_LUMEN/img_1.png" },
