@@ -70,9 +70,11 @@ export default function About() {
                     maxWidth: 440,
                   }}
                 >
-                  I design apps. I make them pretty and easy to use. I use AI
-                  tools like Claude Code for faster development and design-to-code
-                  workflows, with better quality and fewer handoff issues.
+                  I lead product design from the first problem framing to the
+                  shipped release, and I build what I design. With Claude Code I
+                  take my own designs to production React, so the decisions
+                  survive contact with real data and nothing gets lost in a
+                  handoff.
                 </p>
                 <p
                   style={{
@@ -83,8 +85,9 @@ export default function About() {
                   }}
                 >
                   Lead Product Designer at ChronoAI, building AI products from
-                  ideation to launch. Previously Aelf (Web3), VICI Studio
-                  (design agency), BTCC (crypto trading), and Ogilvy.
+                  ideation to launch, and co-founder of Clard, where I designed
+                  and built V2. Previously Aelf (Web3), VICI Studio (design
+                  agency), BTCC (crypto trading), and Ogilvy.
                 </p>
               </HoverImage>
             </div>

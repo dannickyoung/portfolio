@@ -53,94 +53,177 @@ function singles(base: string, count: number, startTone: TileTone = "dark"): Med
 
 export const allWorks: Work[] = [
   {
-    slug: "portkey-wallet",
-    title: "Portkey Wallet",
-    category: "Web3 / AA Wallet",
+    slug: "clard",
+    title: "Clard",
+    category: "AI / Networking SaaS",
     description:
-      "AA crypto wallet that onboards Web2 users to Web3, no seed phrases, just email or social login.",
+      "My own 0→1 startup: AI business cards that turn every handshake into a ranked follow-up queue. Designed, and V2 built, by me with AI.",
     tone: "dark",
-    image: "/projects/PORTKEY/1.png",
-    industry: "Web3 Blockchain",
-    role: "Lead Product Designer",
-    platform: "Mobile / Browser Extension",
-    timeline: "2024 - 2025",
+    image: "/projects/CLARD/thumb.png",
+    industry: "AI Software / B2B SaaS",
+    role: "Co-founder · Lead Product Designer",
+    platform: "Web / iOS / Android",
+    timeline: "06/2025 - Present",
     about:
-      "Portkey is the first AA wallet on aelf, built to migrate users from Web2 to Web3. Sign up with email or social, recover through trusted guardians, move assets across aelf, Ethereum, and EVM, no seed phrase anywhere. Ships on iOS, Android, Chrome, and as an SDK for partner dApps.",
-    tags: ["wallet design", "account abstraction", "web3 onboarding", "design system"],
+      "Clard is an AI networking product. You get an AI-designed digital business card, share it by QR or link, and everyone who engages with it becomes a tracked contact that Clard scores, ranks, and helps you follow up with. Companies roll one branded card out to every employee and see who their team is actually meeting.",
+    tags: ["0→1 founder", "ai product design", "design engineering", "design systems"],
     problemStatement:
-      "The wallet was where aelf's growth plan leaked. Portkey is aelf's AA wallet, and the strategy depended on Web2 users self-custodying, but every one of them hit a seed phrase in the first minute and left. The brief wasn't to design a wallet. It was to make self-custody feel like a normal sign-up, without dropping its security or alienating crypto-native users.",
+      "Most relationships die right after the meeting. The card goes in a pocket, the context goes with it, and the CRM never gets updated because nobody types leads in after an event. Digital cards fixed the sharing and nothing else. Our first paying customers, engineering and construction firms, came to stop printing paper cards. The product's job was to make sure that once the card was digital, the follow-up actually happened.",
     thinking:
-      "Account abstraction gave me social recovery, a primitive most wallets lack. So I inverted the usual priority. Instead of teaching people to guard a key they'll lose, I designed around the moment they fear most, losing access, and made guardian recovery the centerpiece. Email login and plain-language signing followed from there.",
+      "V1 shipped as an analytics product: views, scans, maps, charts. Usage told us people don't open a networking app to admire a chart, they open it between meetings to decide who to message next. So for V2 I reframed the whole product as a follow-up cockpit. The home screen became a queue of real people ranked by AI score, each with one action, and the analytics moved to a secondary tab. Every other decision followed from one question: does this help someone follow up today?",
     leadership:
-      "Leading with Web2 login meant betting against crypto convention, which wasn't the default instinct on the team. I made the case that crypto-native users weren't the growth audience, so the wallet should optimise for the people who bounce, not the people already comfortable. I also owned the design system that kept mobile, the extension, and the partner SDK on one set of primitives, so a user who meets Portkey inside a partner dApp lands in the same flow everywhere.",
+      "As co-founder I own product and design end to end, and for V2 I also built it. I rebuilt the app myself with Claude Code on React 19, TypeScript, and Tailwind v4, behind a data seam that runs on mock data or the live API with one environment variable, so the design ships as production code, not a Figma handoff. I wrote the product rules the codebase follows (what the AI can and can't claim to do, how pipeline stages work), set up CI, and turned card generation into a reusable AI skill so every card meets one design canon.",
     reflectionProse:
-      "Recovery is where mainstream trust is won, so next time I'd push guardian education even earlier, before the user has anything to lose, so the safety net is felt from the first screen. The hardest ongoing tension was keeping three surfaces consistent as each shipped on its own timeline; a shared component library helped, but I'd lock those primitives down sooner.",
+      "The hardest call was honesty over magic. It's tempting to show a Send button and 'auto follow-up', but Clard can't send on your behalf, so the UI drafts the message and you send it yourself, and replies are logged by hand. It's a less impressive demo and a more trustworthy product. What I'd do differently: write the product rules before the first screen. Once those rules existed, the AI-built code stayed consistent. Before them, every screen re-argued what Clard could and couldn't do.",
     problem: [
-      "Seed phrases lose 99% of users",
-      "Crypto-native UI scares newcomers",
-      "Recovery is all-or-nothing",
-      "Three surfaces, one UX to hold",
+      "Contacts die in a pocket after the event",
+      "CRMs need typing nobody does",
+      "V1 led with charts, not next actions",
+      "Companies need one card for 200 people",
     ],
     approach:
-      "Led with Web2 patterns the AA architecture made safe, email login, guided recovery, plain-English permissions, in rounded, approachable forms so it reads as a consumer app, not a terminal.",
+      "Rebuilt the product around the follow-up: an AI-ranked queue of people as the home screen, drafted messages you send yourself, a pipeline that only moves when you log it, and one locked company card every seat inherits. Calm, dark, instrumented UI with a single accent colour.",
     process: [
-      "Audited where mainstream wallets lose users: the seed-phrase screen.",
-      "Designed to what AA + DID allowed, not to crypto convention.",
-      "Prototyped recovery first, the most anxious moment.",
-      "Built shared primitives, proven in the partner SDK shell.",
+      "Watched how V1 was used: quick checks between meetings, not reporting.",
+      "Reframed the dashboard as a follow-up cockpit, analytics demoted.",
+      "Wrote the product rules first, then built V2 in code with Claude Code.",
+      "Designed the org model around how admins roll out cards.",
     ],
     keyDecisions: [
       {
-        decision: "Web2 login as the front door",
-        chose: "Email & social by default",
-        over: "Seed-phrase-first onboarding",
+        decision: "A follow-up cockpit, not an analytics dashboard",
+        chose: "AI-ranked queue of people + one action each",
+        over: "Charts of views and scans",
         explanation:
-          "Email and social became the default; seed-phrase import moved behind an advanced toggle, out of the first 60 seconds.",
-        metric: "Sign-up completion: ~35% → ~70%",
+          "The home screen answers 'who should I message now?'. Views, maps, and engagement charts still exist, but on a secondary tab for the moments someone wants to report, not act.",
       },
       {
-        decision: "Guardians as a designed surface",
-        chose: "A guided recovery flow",
-        over: "Recovery buried in settings",
+        decision: "Draft, never send",
+        chose: "AI drafts, user sends, user logs the reply",
+        over: "Fake auto follow-ups",
         explanation:
-          "Made recovery visible, who's approving and why, turning the most anxious moment in wallet UX into a reassuring one.",
+          "Clard has no proxy email or number, so the composer is Copy and Regenerate only, and pipeline stages move only on logged checkpoints. The UI never claims something the product can't do.",
       },
       {
-        decision: "Plain-language transactions",
-        chose: "Human-readable summaries",
-        over: "Raw hex and jargon",
+        decision: "Company cards are inherited, not distributed",
+        chose: "One locked seed card every seat derives",
+        over: "CSV uploads and batch releases",
         explanation:
-          "Swapped hex and network jargon for plain summaries; power users can still expand the raw payload.",
+          "Admins launch one card and every member, pending invite, and future hire gets it automatically. Admins control the logo and which fields people may edit, not the design, so brand stays consistent at 200+ seats.",
+        metric: "3 companies, 230 paid seats",
       },
       {
-        decision: "One system, every surface",
-        chose: "Shared primitives",
-        over: "Bespoke UI per platform",
+        decision: "Design shipped as code",
+        chose: "Production React built with Claude Code",
+        over: "Figma files handed to engineering",
         explanation:
-          "The SDK ships the same login, recovery, and signing screens as the app, so the wallet is recognizable everywhere.",
+          "V2 runs on a swappable data layer plus a live-engagement simulator, so the prototype behaves like a real account and the same code goes live against the real API.",
       },
     ],
     outcomes: [
-      "Shipped on iOS, Android & Chrome",
-      "Embeddable partner SDK",
-      "Recovery reframed as a guided flow",
-      "One cross-surface design system",
+      "3 companies, 230 paid seats",
+      "One rollout reached 187 people across SG/MY/VN",
+      "V2 designed and built by me with AI",
+      "Shipped on web & the App Store",
     ],
     learnings: [
-      "Recovery wins trust, not signup",
-      "Plain copy is a security feature",
-      "Partner SDKs are a brand surface",
+      "Design the next action, not the report",
+      "Honest UI beats a magic demo",
+      "Write the rules before the screens",
+    ],
+    blocks: singles("/projects/CLARD", 8, "dark"),
+  },
+  {
+    slug: "nyxid",
+    title: "NyxID",
+    category: "AI / Developer Security",
+    description:
+      "0→1 credential broker that lets Claude, Cursor, and your own AI agents call APIs without ever holding the keys.",
+    tone: "dark",
+    image: "/projects/CHRONO_NYXID/thumb.png",
+    industry: "AI Infrastructure / Security",
+    role: "Lead UI/UX Designer",
+    platform: "Web Console / CLI / Mobile",
+    timeline: "2026",
+    about:
+      "NyxID connects Claude, Cursor, Codex, or your own AI agents to public, internal, and localhost APIs with secure access control. Agents proxy every request through NyxID, so credentials never leave your control, and every connection can be approved from your phone.",
+    tags: ["ai agent interfaces", "developer tools", "security ux", "design systems"],
+    problemStatement:
+      "AI agents are only useful once they can touch real systems, and today that means pasting raw API keys into config files and prompts. Every agent ends up holding every secret, with no record of what it called and no way to pull access back. The brief wasn't to design a key vault. It was to make handing access to an agent feel safe and legible, for developers whose default is to just paste the key.",
+    thinking:
+      "NyxID is a proxy, and a proxy is invisible by design. So the interface's job was to make an invisible layer readable. I organised the whole console around four questions a developer actually asks: which agent is this, what can it reach, where does it route, and who approved it. Agents became first-class identities with their own keys, scopes, and activity, instead of anonymous tokens in a list.",
+    leadership:
+      "As the lead designer on a 0→1 product, I owned the experience end to end: information architecture, the visual language, and the component system across sign-in, onboarding, the console, and the AI setup flows. A lot of the work was translation, sitting with engineering to decide how concepts like bindings, nodes, and rate limits surface in plain language, so the security model stayed honest without reading like a config file.",
+    reflectionProse:
+      "The console grew fast, every new capability wanted its own page, and the sidebar felt it. The command palette became the release valve, but I'd group navigation by job (connect, control, audit) much earlier instead of letting it grow one destination at a time. The other tension was depth versus approachability: power users want raw config, newcomers want one button. Pairing a one-click install with a copyable manual config on the same card was the pattern that resolved it, and I'd apply it everywhere from day one.",
+    problem: [
+      "Agents get raw keys pasted into config",
+      "Every agent can reach every service",
+      "No record of what an agent called",
+      "Security concepts read like infra docs",
+    ],
+    approach:
+      "Treated agents as identities, not tokens: each gets a scoped key, explicit service bindings, and its own activity trail, wrapped in a calm dark console that leads with security posture and keeps raw config one click away.",
+    process: [
+      "Mapped how developers wire agents to APIs today: pasted keys everywhere.",
+      "Framed the console around who, what, where, and who approved.",
+      "Designed onboarding to reach the first connected service in one step.",
+      "Built the component system, then extended it to setup and org flows.",
+    ],
+    keyDecisions: [
+      {
+        decision: "Agents as first-class identities",
+        chose: "Per-agent keys, scopes & activity",
+        over: "A flat list of API tokens",
+        explanation:
+          "Each agent gets its own scoped key with visible Read/Write chips, bindings, and a usage trail, so 'what can Cursor touch?' is answered on one card.",
+      },
+      {
+        decision: "Security posture up front",
+        chose: "A progress checklist on the dashboard",
+        over: "Settings buried in a profile menu",
+        explanation:
+          "Email, MFA, a connected service, and a scoped key form a visible 4-of-4 posture card, turning hardening into a short checklist instead of a hidden chore.",
+      },
+      {
+        decision: "Approvals off the desktop",
+        chose: "Approve from Telegram or mobile",
+        over: "Approvals only inside the console",
+        explanation:
+          "Agents ask for access while you're away from the dashboard, so approvals go where you already are, and the console keeps the history and active grants.",
+      },
+      {
+        decision: "One click, with the config still visible",
+        chose: "Deeplink install + copyable manual config",
+        over: "Docs-only setup",
+        explanation:
+          "Install to Cursor or Claude Code in one action, with the exact JSON and CLI command right below for anyone who wants to see what it's doing.",
+      },
+    ],
+    outcomes: [
+      "0→1 web console, onboarding & setup flows",
+      "Install paths for Claude Code, Cursor & Codex",
+      "Approvals via Telegram & mobile app",
+      "Org roles from Owner to Viewer",
+    ],
+    learnings: [
+      "Make the invisible layer legible",
+      "Security UX is a checklist, not a lecture",
+      "Show the config behind the magic button",
     ],
     blocks: [
-      { kind: "single", tone: "dark", image: "/projects/PORTKEY/1.png" },
-      { kind: "single", tone: "dark", image: "/projects/PORTKEY/2.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_1.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_2.png" },
       {
         kind: "double",
         tones: ["dark", "dark"],
-        images: ["/projects/PORTKEY/3.png", "/projects/PORTKEY/3.1.png"],
+        images: ["/projects/CHRONO_NYXID/img_3.png", "/projects/CHRONO_NYXID/img_3_1.png"],
       },
-      { kind: "single", tone: "lime", image: "/projects/PORTKEY/4.png" },
-      { kind: "single", tone: "dark", image: "/projects/PORTKEY/5.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_4.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_5.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_6.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_7.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_8.png" },
     ],
   },
   {

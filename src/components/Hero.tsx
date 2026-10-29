@@ -35,7 +35,7 @@ export default function Hero() {
         </div>
         <div className="hero-col-right hero-cell-mid-right">
           <h1 className="hero-headline">
-            Product designer building AI, Web3, and design systems that scale.
+            Lead product designer taking AI products from zero to shipped, in Figma and in code.
           </h1>
         </div>
       </div>

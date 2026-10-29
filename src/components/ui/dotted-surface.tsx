@@ -31,10 +31,17 @@ export function DottedSurface({ className, dark = false, ...props }: DottedSurfa
 		);
 		camera.position.set(0, 355, 1220);
 
-		const renderer = new THREE.WebGLRenderer({
-			alpha: true,
-			antialias: true,
-		});
+		// Decorative only: without WebGL (GPU blocklisted, locked-down browsers)
+		// skip the effect instead of letting the throw take down the page.
+		let renderer: THREE.WebGLRenderer;
+		try {
+			renderer = new THREE.WebGLRenderer({
+				alpha: true,
+				antialias: true,
+			});
+		} catch {
+			return;
+		}
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		renderer.setClearColor(scene.fog.color, 0);

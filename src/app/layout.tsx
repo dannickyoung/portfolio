@@ -14,9 +14,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dannick Young, Product Designer",
+  title: "Dannick Young, Lead Product Designer",
   description:
-    "Product designer building AI products, Web3 interfaces, and design systems that scale.",
+    "Lead product designer taking AI products from zero to shipped, in Figma and in code. Co-founder of Clard.",
 };
 
 export default function RootLayout({
