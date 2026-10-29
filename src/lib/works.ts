@@ -63,7 +63,7 @@ export const allWorks: Work[] = [
     industry: "AI Software / B2B SaaS",
     role: "Co-founder · Lead Product Designer",
     platform: "Web / iOS / Android",
-    timeline: "06/2025 - Present",
+    timeline: "06/2026 - Present",
     about:
       "Clard is an AI networking product. You get an AI-designed digital business card, share it by QR or link, and everyone who engages with it becomes a tracked contact that Clard scores, ranks, and helps you follow up with. Companies roll one branded card out to every employee and see who their team is actually meeting.",
     tags: ["0→1 founder", "ai product design", "design engineering", "design systems"],
@@ -131,7 +131,31 @@ export const allWorks: Work[] = [
       "Honest UI beats a magic demo",
       "Write the rules before the screens",
     ],
-    blocks: singles("/projects/CLARD", 8, "dark"),
+    blocks: [
+      // Entry: what needs doing today, and the cards that start every conversation
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_1.png" },
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_2.png" },
+      // Core follow-up flow: share at the handshake (mobile) → lead lands in the ranked queue
+      {
+        kind: "double",
+        tones: ["dark", "dark"],
+        images: ["/projects/CLARD/mobile_1.png", "/projects/CLARD/mobile_2.png"],
+      },
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_3.png" },
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_4.png" },
+      // AI draft: insight → one-tap draft, copied and ready to send (mobile)
+      {
+        kind: "double",
+        tones: ["dark", "dark"],
+        images: ["/projects/CLARD/mobile_3.png", "/projects/CLARD/mobile_4.png"],
+      },
+      // Company rollout / admin
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_6.png" },
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_7.png" },
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_8.png" },
+      // Analytics
+      { kind: "single", tone: "dark", image: "/projects/CLARD/img_5.png" },
+    ],
   },
   {
     slug: "nyxid",
@@ -212,8 +236,8 @@ export const allWorks: Work[] = [
       "Show the config behind the magic button",
     ],
     blocks: [
-      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_1.png" },
       { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_2.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_1.png" },
       {
         kind: "double",
         tones: ["dark", "dark"],
@@ -221,9 +245,9 @@ export const allWorks: Work[] = [
       },
       { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_4.png" },
       { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_5.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_8.png" },
       { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_6.png" },
       { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_7.png" },
-      { kind: "single", tone: "dark", image: "/projects/CHRONO_NYXID/img_8.png" },
     ],
   },
   {
@@ -383,7 +407,13 @@ export const allWorks: Work[] = [
       "Tone does as much work as words",
       "Earn trust on the hardest conversations",
     ],
-    blocks: singles("/projects/CHRONO_GODGPT", 5, "dark"),
+    blocks: [
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_GODGPT/img_1.png" },
+      { kind: "single", tone: "light", image: "/projects/CHRONO_GODGPT/img_4.png" },
+      { kind: "single", tone: "lime", image: "/projects/CHRONO_GODGPT/img_3.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_GODGPT/img_2.png" },
+      { kind: "single", tone: "light", image: "/projects/CHRONO_GODGPT/img_5.png" },
+    ],
   },
   {
     slug: "soulgarden",
@@ -548,12 +578,12 @@ export const allWorks: Work[] = [
     blocks: [
       { kind: "single", tone: "light", image: "/projects/CHRONO_LUMEN/img_1.png" },
       { kind: "single", tone: "lime", image: "/projects/CHRONO_LUMEN/img_2.png" },
+      { kind: "single", tone: "dark", image: "/projects/CHRONO_LUMEN/img_5.png" },
       {
         kind: "double",
         tones: ["dark", "light"],
         images: ["/projects/CHRONO_LUMEN/img_3.png", "/projects/CHRONO_LUMEN/img_4.png"],
       },
-      { kind: "single", tone: "dark", image: "/projects/CHRONO_LUMEN/img_5.png" },
       { kind: "single", tone: "light", image: "/projects/CHRONO_LUMEN/img_6.png" },
       { kind: "single", tone: "lime", image: "/projects/CHRONO_LUMEN/img_7.png" },
     ],
@@ -652,7 +682,13 @@ export const allWorks: Work[] = [
       "Modern UI elements and intuitive navigation differentiate brands in competitive markets",
       "Engaging storytelling through case studies is crucial for showcasing expertise",
     ],
-    blocks: singles("/projects/VICI_DTRAX", 5, "light"),
+    blocks: [
+      { kind: "single", tone: "light", image: "/projects/VICI_DTRAX/img_1.png" },
+      { kind: "single", tone: "lime", image: "/projects/VICI_DTRAX/img_3.png" },
+      { kind: "single", tone: "dark", image: "/projects/VICI_DTRAX/img_4.png" },
+      { kind: "single", tone: "light", image: "/projects/VICI_DTRAX/img_2.png" },
+      { kind: "single", tone: "lime", image: "/projects/VICI_DTRAX/img_5.png" },
+    ],
   },
   {
     slug: "btcc-jx",
@@ -711,7 +747,14 @@ export const allWorks: Work[] = [
       "Clear content organization reduces overwhelm and improves user retention",
       "Calming visual design can make intimidating financial interfaces more accessible",
     ],
-    blocks: singles("/projects/BTCC_JX", 6, "dark"),
+    blocks: [
+      { kind: "single", tone: "dark", image: "/projects/BTCC_JX/img_6.png" },
+      { kind: "single", tone: "light", image: "/projects/BTCC_JX/img_1.png" },
+      { kind: "single", tone: "lime", image: "/projects/BTCC_JX/img_2.png" },
+      { kind: "single", tone: "dark", image: "/projects/BTCC_JX/img_3.png" },
+      { kind: "single", tone: "light", image: "/projects/BTCC_JX/img_5.png" },
+      { kind: "single", tone: "lime", image: "/projects/BTCC_JX/img_4.png" },
+    ],
   },
 ];
 

@@ -85,8 +85,7 @@ export default function About() {
                   }}
                 >
                   Lead Product Designer at ChronoAI, building AI products from
-                  ideation to launch, and co-founder of Clard, where I designed
-                  and built V2. Previously Aelf (Web3), VICI Studio (design
+                  ideation to launch, and co-founder of Clard. Previously Aelf (Web3), VICI Studio (design
                   agency), BTCC (crypto trading), and Ogilvy.
                 </p>
               </HoverImage>
